@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-20 07:10+0000\n"
+"POT-Creation-Date: 2024-11-22 12:22+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -420,15 +420,15 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
-#: classes/Backend_Page_Trait.php:93, includes/translate-text.php:101, includes/translate-text.php:105, includes/translate-text.php:109, includes/translate-text.php:113, templates/dashboard/purchase_history.php:220
+#: classes/Backend_Page_Trait.php:93, includes/translate-text.php:101, includes/translate-text.php:105, includes/translate-text.php:109, includes/translate-text.php:113, templates/dashboard/purchase_history.php:213
 msgid "On Hold"
 msgstr ""
 
-#: classes/Backend_Page_Trait.php:106, classes/Course_List.php:163, classes/Instructors_List.php:104, classes/Quiz_Attempts_List.php:232, classes/Utils.php:3181, includes/translate-text.php:41, templates/dashboard/dashboard.php:153, templates/dashboard/my-courses.php:64, templates/dashboard/purchase_history.php:232, views/pages/course-list.php:133, views/pages/instructors.php:54, views/quiz/attempt-details.php:294, views/quiz/attempt-details.php:775, views/quiz/attempt-table.php:156, templates/single/assignment/content.php:459, templates/single/course/reviews-loop.php:41, views/pages/ecommerce/order-list.php:57
+#: classes/Backend_Page_Trait.php:106, classes/Course_List.php:163, classes/Instructors_List.php:104, classes/Quiz_Attempts_List.php:232, classes/Utils.php:3181, includes/translate-text.php:41, templates/dashboard/dashboard.php:153, templates/dashboard/my-courses.php:64, templates/dashboard/purchase_history.php:225, views/pages/course-list.php:133, views/pages/instructors.php:54, views/quiz/attempt-details.php:294, views/quiz/attempt-details.php:775, views/quiz/attempt-table.php:156, templates/single/assignment/content.php:459, templates/single/course/reviews-loop.php:41, views/pages/ecommerce/order-list.php:57
 msgid "Pending"
 msgstr ""
 
-#: classes/Backend_Page_Trait.php:119, includes/translate-text.php:77, templates/dashboard/purchase_history.php:216, templates/dashboard/purchase_history.php:224
+#: classes/Backend_Page_Trait.php:119, includes/translate-text.php:77, templates/dashboard/purchase_history.php:209, templates/dashboard/purchase_history.php:217
 msgid "Processing"
 msgstr ""
 
@@ -2567,7 +2567,7 @@ msgstr ""
 msgid "Easy Digital Downloads"
 msgstr ""
 
-#: classes/TutorEDD.php:107, classes/WooCommerce.php:352
+#: classes/TutorEDD.php:107, classes/WooCommerce.php:361
 msgid "Add Product"
 msgstr ""
 
@@ -2906,7 +2906,7 @@ msgstr ""
 msgid "In Progress"
 msgstr ""
 
-#: classes/Utils.php:7413, includes/translate-text.php:69, models/OrderModel.php:171, templates/dashboard/purchase_history.php:212
+#: classes/Utils.php:7413, includes/translate-text.php:69, models/OrderModel.php:171, templates/dashboard/purchase_history.php:205
 msgid "Completed"
 msgstr ""
 
@@ -3180,23 +3180,23 @@ msgstr ""
 msgid "Since monetization is currently disabled, your courses are set to free. Enable Tutor LMS monetization to start selling your courses."
 msgstr ""
 
-#: classes/WooCommerce.php:322
+#: classes/WooCommerce.php:331
 msgid "For Tutor"
 msgstr ""
 
-#: classes/WooCommerce.php:323
+#: classes/WooCommerce.php:332
 msgid "This checkmark ensure that you will sell a specific course via this product."
 msgstr ""
 
-#: classes/WooCommerce.php:449
+#: classes/WooCommerce.php:458
 msgid "Enable Guest Mode"
 msgstr ""
 
-#: classes/WooCommerce.php:452
+#: classes/WooCommerce.php:461
 msgid "Allow customers to place orders without an account."
 msgstr ""
 
-#: classes/WooCommerce.php:470
+#: classes/WooCommerce.php:479
 msgid "WooCommerce"
 msgstr ""
 
@@ -3846,7 +3846,7 @@ msgstr ""
 msgid "Incomplete"
 msgstr ""
 
-#: includes/translate-text.php:81, includes/translate-text.php:85, includes/translate-text.php:97, models/OrderModel.php:172, templates/dashboard/purchase_history.php:228
+#: includes/translate-text.php:81, includes/translate-text.php:85, includes/translate-text.php:97, models/OrderModel.php:172, templates/dashboard/purchase_history.php:221
 msgid "Cancelled"
 msgstr ""
 
@@ -4141,6 +4141,10 @@ msgstr ""
 
 #: models/OrderModel.php:1281
 msgid "Order marked as cancelled by %s"
+msgstr ""
+
+#: models/OrderModel.php:1658
+msgid "Pay"
 msgstr ""
 
 #: restapi/RestAuth.php:244
@@ -4603,10 +4607,6 @@ msgstr ""
 
 #: templates/dashboard/purchase_history.php:119, templates/ecommerce/checkout.php:71
 msgid "Payment Method"
-msgstr ""
-
-#: templates/dashboard/purchase_history.php:184
-msgid "Pay"
 msgstr ""
 
 #: templates/dashboard/registration.php:83, templates/dashboard/registration.php:86, views/pages/add_new_instructor.php:68, views/pages/add_new_instructor.php:74, templates/dashboard/instructor/registration.php:83, templates/dashboard/instructor/registration.php:86, templates/dashboard/settings/profile.php:142
@@ -10246,7 +10246,7 @@ msgid "Tax is already included in my prices"
 msgstr ""
 
 #: assets/js/tutor.min.js:1, assets/js/tutor-front.min.js:1, assets/js/tutor-admin.min.js:1, assets/js/tutor-setup.min.js:1, assets/js/tutor-course-builder.min.js:1, assets/js/tutor-order-details.min.js:1, assets/js/tutor-tax-settings.min.js:1, assets/js/tutor-coupon.min.js:1
-msgid "Tax should be calculated & display in the checkout page"
+msgid "Tax should be calculated and displayed on the checkout page"
 msgstr ""
 
 #: assets/js/tutor.min.js:1, assets/js/tutor-front.min.js:1, assets/js/tutor-admin.min.js:1, assets/js/tutor-setup.min.js:1, assets/js/tutor-course-builder.min.js:1, assets/js/tutor-order-details.min.js:1, assets/js/tutor-tax-settings.min.js:1, assets/js/tutor-coupon.min.js:1

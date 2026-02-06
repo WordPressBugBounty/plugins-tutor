@@ -3,9 +3,9 @@ Contributors: themeum
 Donate link: https://tutorlms.com
 Tags: lms, course, elearning, education, learning management system
 Requires at least: 5.3
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.8.3
+Stable tag: 3.9.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -62,6 +62,7 @@ Here are the most notable features of Tutor LMS:
 📌 Personalized dashboard for each role (admins, instructors, students)
 📽️ Video lessons
 📹 Multiple video sources (self-hosted, YouTube, Vimeo, embedded video, etc)
+✍️ Note taking for lessons and videos
 📅 Content drip
 👩‍🏫 Unlimited teacher profiles
 📝 Lesson management
@@ -76,7 +77,7 @@ Here are the most notable features of Tutor LMS:
 ⭐ Course review and rating system
 ❓ Q&A for students with the instructor
 🎥 Video thumbnail (trailer/teaser)
-🚀 Tracking course progress
+🚀 Tracking and resetting course progress
 🌟 Course difficulty level
 ⏳ Set course duration
 🌐 Course marketplace
@@ -152,7 +153,7 @@ The Tutor LMS AI Studio also supports feature image generation, helping you craf
 
 == 📚 COURSE BUNDLES ==
 
-With Tutor LMS, you can sell multiple courses in a [course bundle](https://tutorlms.com/course-bundles/). Bundles can be offered at a discounted price or structured as a guided learning path by encouraging students to explore complementary topics. This feature enhances course accessibility and creates curated learning journeys tailored to students’ needs.
+With Tutor LMS, you can sell multiple courses in a [course bundle](https://tutorlms.com/course-bundles/). Bundles can be offered at a discounted price or structured as a guided learning path by encouraging students to explore complementary topics. This feature enhances course accessibility and creates curated learning journeys tailored to students’ needs. You can also offer certificates for the bundle courses.
 
 == 🗂️ CONTENT BANK ==
 
@@ -317,6 +318,73 @@ Tutor LMS allows you to offer certificates to your students upon course completi
 
 
 == Changelog ==
+
+= 3.9.6 - Jan 28, 2026
+
+Update: Removed the autoload option from ‘email_template_data’ to improve site load performance. (Pro)
+Fix: Course content edited with Divi can now be reverted to its original content from the Tutor Course Builder.
+Fix: Improved user email verification by validating the token during Google login. (Pro)
+Fix: Enhanced the security of email verification link generation. (Pro)
+Fix: Added a capability check to the coupon details AJAX request.
+Fix: Restricted instructors from deleting courses created by other admins or instructors. (Pro)
+Fix: Improved WPML compatibility. (Pro)
+
+= 3.9.5 - Jan 08, 2025
+
+New: Added a certificate download button for Admins and Instructors. (Pro)
+Update: Added support for PHP 8.4
+Update: Instructors can remove co-instructors from their own courses. (Pro)
+Update: Multiple improvements and fixes to gift course functionality. (Pro)
+Fix: Fixed security issues.
+Fix: Users can now retry payment after a failed transaction. (Pro)
+Fix: Filters no longer stop working when the category filter is disabled on the course list page.
+Fix: Fixed datepicker style conflict with WooCommerce coupon date picker UI.
+Fix: Unpublished rating count no longer appears on the course details page.
+Fix: Added some missing cities of Spain to the checkout page dropdown.
+Fix: Gift course messages now support special characters. (Pro)
+
+= 3.9.4 - Dec 18, 2025
+
+Update: Compatibility with WordPress 6.9
+Fix: Security vulnerabilities
+
+= 3.9.3 - Nov 27, 2025
+
+Fix: Grades were auto-generated for all quizzes after a student attempted any quiz. (Pro)
+Fix: Automatic enrollment was not working when users enrolled in cancelled courses.
+Fix: Incorrect list of instructors shown when using the Instructor shortcode.
+Fix: Certificate download option appearing for courses that don’t provide certificates. (Pro)
+Fix: Incorrect email content in the assignment evaluation trigger. (Pro)
+
+= 3.9.2 - Nov 10, 2025
+
+New: Added payment option support for manual enrolment for native monetization. (Pro)
+Update: Enhanced Strict Mode — course completion is now blocked if any assignment is failed. (Pro)
+Fix: Resolved conflict between Limit Active Login Sessions and WooCommerce Guest Checkout. (Pro)
+Fix: Fixed video player issue on mobile devices.
+Fix: Corrected issue where course completion emails were sent to the wrong user. (Pro)
+Fix: Fixed PHP error on sites that have never used WooCommerce for monetization.
+Fix: Resolved issue showing raw HTML code in WooCommerce manual enrolment. (Pro)
+Fix: Corrected display issue where courses with multiple purchase options showed Add to Cart instead of View Details. (Pro)
+Fix: Fixed quiz import issue. (Pro)
+Fix: Resolved the WPML 404 redirection issue in certain scenarios. (Pro)
+
+= 3.9.1 - Oct 23, 2025
+
+Fix: Resolved BunnyNet video not loading issue.
+Fix: Resolved Quiz attempt access denied issue.
+Fix: Resolved Assignment search is not working. (Pro)
+
+= 3.9.0 - Oct 22, 2025
+
+New: Introducing Lesson & Video Note-Taking. (Pro)
+New: Certificate Support for Course Bundles. (Pro)
+New: Allow Admins and Instructors to reset course progress for individual students. (Pro)
+Fix: Popover RTL issue.
+Fix: Assignment details not showing on start/update assignment page. (Pro)
+Fix: Dropdown issue on frontend scheduled courses fixed.
+Fix: Warning displayed after student attempts imported quiz.
+Fix: Security issues are fixed.
 
 = 3.8.3 - Sep 30, 2025
 

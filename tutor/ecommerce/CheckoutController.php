@@ -10,16 +10,15 @@
 
 namespace Tutor\Ecommerce;
 
-use Tutor\Helpers\QueryHelper;
-use Tutor\Helpers\ValidationHelper;
 use TUTOR\Input;
-use Tutor\Models\BillingModel;
-use Tutor\Traits\JsonResponse;
 use Tutor\Models\CartModel;
+use Tutor\Models\OrderModel;
 use Tutor\Models\CouponModel;
 use Tutor\Models\CourseModel;
-use Tutor\Models\OrderModel;
-use TutorPro\Ecommerce\GuestCheckout\GuestCheckout;
+use Tutor\Helpers\QueryHelper;
+use Tutor\Models\BillingModel;
+use Tutor\Traits\JsonResponse;
+use Tutor\Helpers\ValidationHelper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -555,15 +554,25 @@ class CheckoutController {
 	 * @return void
 	 */
 	public function pay_now() {
-		tutor_utils()->check_nonce();
+		$errors = array();
+		if ( ! tutor_utils()->is_nonce_verified() ) {
+			array_push( $errors, tutor_utils()->error_message( 'nonce' ) );
+			set_transient( self::PAY_NOW_ALERT_MSG_TRANSIENT_KEY . 'pay_now_nonce_alert', $errors );
+			return;
+		}
 		global $wpdb;
-
-		$errors     = array();
-		$order_data = null;
-
+		$order_data      = null;
 		$billing_model   = new BillingModel();
 		$current_user_id = is_user_logged_in() ? get_current_user_id() : wp_rand();
 		$request = Input::sanitize_array( $_POST ); //phpcs:ignore --sanitized.
+		$order_id        = Input::get( 'order_id', 0, Input::TYPE_INT );
+
+		if ( $order_id ) {
+			$order_data = OrderModel::get_valid_incomplete_order( $order_id, get_current_user_id(), true );
+			if ( ! $order_data || OrderModel::TYPE_SINGLE_ORDER !== $order_data->order_type ) {
+				array_push( $errors, __( 'Invalid order', 'tutor' ) );
+			}
+		}
 
 		$billing_fillable_fields = array_intersect_key( $request, array_flip( $billing_model->get_fillable_fields() ) );
 
@@ -679,15 +688,28 @@ class CheckoutController {
 				}
 			}
 
-			$order_data = $this->order_ctrl->create_order(
-				$current_user_id,
-				$items,
-				OrderModel::PAYMENT_UNPAID,
-				$order_type,
-				$checkout_data->coupon_code,
-				$args,
-				false
-			);
+			if ( ! empty( $order_data ) ) {
+				$order_data = $this->order_ctrl->update_order(
+					$order_id,
+					$current_user_id,
+					$items,
+					OrderModel::PAYMENT_UNPAID,
+					$order_type,
+					$checkout_data->coupon_code,
+					$args,
+					true
+				);
+			} else {
+				$order_data = $this->order_ctrl->create_order(
+					$current_user_id,
+					$items,
+					OrderModel::PAYMENT_UNPAID,
+					$order_type,
+					$checkout_data->coupon_code,
+					$args,
+					false
+				);
+			}
 
 			if ( ! empty( $order_data ) ) {
 				if ( 'automate' === $payment_type ) {
@@ -966,13 +988,14 @@ class CheckoutController {
 	 * @return void
 	 */
 	public function restrict_checkout_page() {
-		if ( ! is_page( self::get_page_id() ) ) {
+		$page_id = self::get_page_id();
+		if ( ! $page_id || ! is_page( $page_id ) ) {
 			return;
 		}
 
 		$cart_page_url = CartController::get_page_url();
 
-		if ( ! is_user_logged_in() && ! GuestCheckout::is_enable() ) {
+		if ( ! is_user_logged_in() && ! apply_filters( 'tutor_is_guest_checkout_enabled', false ) ) {
 			wp_safe_redirect( $cart_page_url );
 			exit;
 		}
@@ -982,8 +1005,9 @@ class CheckoutController {
 		$has_cart_item = $cart_model->has_item_in_cart( $user_id );
 		$buy_now       = Settings::is_buy_now_enabled();
 		$plan_id       = Input::get( 'plan', 0, Input::TYPE_INT );
+		$order_id      = Input::get( 'order_id', 0, Input::TYPE_INT );
 
-		if ( ! $has_cart_item && ! $buy_now && ! $plan_id ) {
+		if ( ! $has_cart_item && ! $buy_now && ! $plan_id && ! $order_id ) {
 			wp_safe_redirect( $cart_page_url );
 			exit;
 		}
@@ -1049,6 +1073,7 @@ class CheckoutController {
 			$order_data  = $order_model->get_order_by_id( $order_id );
 			if ( $order_data ) {
 				try {
+
 					if ( ! empty( $payment_method ) && OrderModel::PAYMENT_METHOD_MANUAL === $order_data->payment_method ) {
 						$billing_info = $billing_model->get_info( $order_data->user_id );
 						if ( $billing_info ) {
@@ -1127,5 +1152,39 @@ class CheckoutController {
 		}
 
 		return ValidationHelper::validate( $validation_rules, $data );
+	}
+
+	/**
+	 * Retrieve course data for a given set of order items.
+	 *
+	 * @since 3.9.0
+	 *
+	 * @param array $order_items Array of order item objects.
+	 * @return array{
+	 *     courses: array{
+	 *         total_count: int,
+	 *         results: \WP_Post[]
+	 *     }
+	 * }
+	 */
+	public function get_courses_data_by_order_items( $order_items ): array {
+
+		$results = array();
+
+		foreach ( $order_items as $item ) {
+
+			$course = get_post( $item->id );
+
+			if ( $course instanceof \WP_Post ) {
+				$results[] = $course;
+			}
+		}
+
+		return array(
+			'courses' => array(
+				'total_count' => count( $results ),
+				'results'     => $results,
+			),
+		);
 	}
 }

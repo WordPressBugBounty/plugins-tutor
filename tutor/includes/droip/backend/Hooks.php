@@ -47,6 +47,105 @@ class Hooks
         add_filter('droip_external_collection_options', [$this, 'modify_external_collection_options'], 10, 2);
         add_filter('droip_external_collection_item_type', [$this, 'get_tutor_item_types'], 10, 2);
         add_filter('droip_element_generator_radio-button', [$this, 'droip_element_generator_radio_buttons'], 10, 2);
+
+        add_filter('droip_import_should_create_page', [$this, 'droip_import_should_create_page'], 10, 2);
+        add_action('droip_import_page_created', [$this, 'droip_import_page_created'], 10, 2);
+
+        // $show = apply_filters('droip_show_custom_section_' . $type, true);
+        add_filter('droip_show_custom_section_header', [$this, 'show_droip_header'], 10, 1);
+        add_filter('droip_show_custom_section_footer', [$this, 'show_droip_footer'], 10, 1);
+    }
+
+    public function show_droip_header($show)
+    {
+        $is_frontend_builder = tutor_utils()->is_tutor_frontend_dashboard( 'create-course' );
+        if ( $is_frontend_builder ) {
+            $show = false;
+        }
+        if( $this->if_spotlight_mode_for_learning_page_enabled() ) {
+            $show = false;
+        }
+        return $show;
+    }
+
+    public function show_droip_footer($show)
+    {
+        $is_frontend_builder = tutor_utils()->is_tutor_frontend_dashboard( 'create-course' );
+        if ( $is_frontend_builder ) {
+            $show = false;
+        }
+        if( $this->if_spotlight_mode_for_learning_page_enabled() ) {
+            $show = false;
+        }
+        return $show;
+    }
+
+    private function if_spotlight_mode_for_learning_page_enabled(){
+        global $wp_query;
+        if($wp_query->is_single && ! empty( $wp_query->query_vars['post_type'] ) &&  in_array( $wp_query->query_vars['post_type'], ['lesson', 'tutor_quiz', 'tutor_assignments', 'tutor-google-meet', 'tutor_zoom_meeting'])  ) {
+            $enable_spotlight_mode = tutor_utils()->get_option( 'enable_spotlight_mode' );
+            if ( $enable_spotlight_mode ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function droip_import_should_create_page($flag, $old_page_data)
+    {
+        if ($old_page_data['post_type'] === 'page') {
+            $page_slug = $old_page_data['post_name'];
+            if(in_array($page_slug, ['instructor-registration', 'student-registration'])){
+                return false;
+            }
+            if($page_slug === 'cart' && get_post(CartController::get_page_id())){
+                return false;
+            }
+            if($page_slug === 'checkout' && get_post(CheckoutController::get_page_id())){
+                return false;
+            }
+
+            $dashboard_page_id = (int) tutor_utils()->dashboard_page_id();
+            if($page_slug === 'dashboard' && get_post($dashboard_page_id)){
+                return false;
+            }
+
+            $certificate_page_id = (int) tutor_utils()->get_option('tutor_certificate_page');
+            if($page_slug === 'tutor-certificate' && get_post($certificate_page_id)){
+                return false;
+            }
+
+            $membership_page_id = (int) tutor_utils()->get_option('membership_pricing_page_id');
+            if($page_slug === 'membership-pricing' && get_post($membership_page_id)){
+                return false;
+            }
+        }
+
+        return $flag;
+    }
+
+    public function droip_import_page_created($new_page_id, $old_page_data)
+    {
+        // Clear Tutor LMS Cache after importing a page
+        if ($old_page_data['post_type'] === 'page') {
+            $page_slug = $old_page_data['post_name'];
+            if($page_slug === 'cart'){
+                tutor_utils()->update_option( CartController::PAGE_ID_OPTION_NAME, $new_page_id );
+            }
+            if($page_slug === 'checkout'){
+                tutor_utils()->update_option( CheckoutController::PAGE_ID_OPTION_NAME, $new_page_id );
+            }
+            if($page_slug === 'dashboard'){
+                tutor_utils()->update_option( 'tutor_dashboard_page_id', $new_page_id );
+            }
+            if($page_slug === 'tutor-certificate'){
+                tutor_utils()->update_option( 'tutor_certificate_page', $new_page_id );
+            }
+            if($page_slug === 'membership-pricing'){
+                tutor_utils()->update_option( 'membership_pricing_page_id', $new_page_id );
+            }
+        }
     }
 
     public function modify_droip_dynamic_content_fields($fields, $collection_data)
@@ -397,7 +496,7 @@ class Hooks
         } else if ($args['name'] === 'TUTOR_LMS-subscriptions') {
             if (tutor()->has_pro && Subscription::is_enabled()) {
                 $plan_model = new PlanModel();
-                $items = $plan_model->get_subscription_plans($args['post_parent']);
+                $items = $plan_model->get_subscription_plans($args['post_parent'], PlanModel::STATUS_ACTIVE); // get all active subscription plans
                 return [
                     'data'       => $items,
                     'pagination' => null,
@@ -646,13 +745,15 @@ class Hooks
                     $plan_id = false;
                     $url = '#';
 
-                    if (isset($args['options'], $args['options']['membership-plan'])) {
+                    if (is_user_logged_in() && isset($args['options'], $args['options']['membership-plan'])) {
                         $plan_id = $args['options']['membership-plan']->id;
                         $checkout_link = CheckoutController::get_page_url();
 
                         if ($checkout_link) {
                             $url = add_query_arg('plan', $plan_id, $checkout_link);
                         }
+                    } else if (!is_user_logged_in()) {
+                        $url = wp_login_url(wp_get_referer());
                     }
 
                     return $url;

@@ -39,20 +39,23 @@ trait PriceGenerator
 		}
 
 		$selling_option = Course::get_selling_option($course_id);
+
+		$is_membership_only_mode_enabled = apply_filters( 'tutor_membership_only_mode', false );
+
 		if(!$selling_option){
 			$selling_option = Course::SELLING_OPTION_ALL;
 		}
 
 		switch ($type) {
 			case 'free': {
-					if (! $this->isPaidCourse($course_id)) {
+					if (! $this->isPaidCourse($course_id)  && !$is_membership_only_mode_enabled) {
 						return $this->generate_common_element();
 					}
 					return "";
 				}
 			case 'paid': {
 					if ($selling_option === Course::SELLING_OPTION_ALL || $selling_option === Course::SELLING_OPTION_ONE_TIME || $selling_option === Course::SELLING_OPTION_BOTH) {
-						if ($this->isPaidCourse($course_id)) {
+						if ($this->isPaidCourse($course_id) && !$is_membership_only_mode_enabled) {
 							return $this->generate_common_element();
 						}
 					}
@@ -60,7 +63,7 @@ trait PriceGenerator
 				}
 			case 'subscription': {
 					if ($selling_option === Course::SELLING_OPTION_ALL || $selling_option === Course::SELLING_OPTION_SUBSCRIPTION || $selling_option === Course::SELLING_OPTION_BOTH) {
-						if (tutor()->has_pro && Subscription::is_enabled()) {
+						if (tutor()->has_pro && Subscription::is_enabled() && !$is_membership_only_mode_enabled) {
 							$plan_model = new PlanModel();
 							$active_subscription_plans = $plan_model->get_subscription_plans($course_id, PlanModel::STATUS_ACTIVE);
 							if ($this->isPaidCourse($course_id) && count($active_subscription_plans) > 0) {

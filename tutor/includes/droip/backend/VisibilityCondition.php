@@ -34,8 +34,11 @@ class VisibilityCondition
 			switch ($type) {
 				case 'courses': {
 						$conditions = self::get_course_type_conditions($conditions);
+						$conditions = self::get_lms_setting_type_conditions($conditions);
+						break;
 					}
 			}
+
 		} elseif ($collectionType === 'user') {
 			switch ($type) {
 				case 'courses': {
@@ -602,12 +605,153 @@ class VisibilityCondition
 		return $conditions;
 	}
 
+	private static function get_lms_setting_type_conditions($conditions)
+	{
+		if (!isset($conditions['lms-settings']['fields'])) {
+			$conditions['lms-settings']['fields'] = array();
+		}
+
+		$conditions['lms-settings'] = array(
+			'title'  => 'LMS Settings',
+			'fields' => array_merge(
+				$conditions['lms-settings']['fields'],
+				array(
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'is_membership_only_mode_enabled',
+						'title'         => 'Membership-Only Mode',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_spotlight_mode',
+						'title' => 'Spotlight Mode Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'     => 'display_course_instructors',
+						'title' => 'Instructor Info Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'     => 'enable_wishlist',
+						'title' => 'Wishlist Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'     => 'enable_q_and_a_on_course',
+						'title' => 'Q&A Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_author',
+						'title' => 'Author Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_level',
+						'title' => 'Level Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_share',
+						'title' => 'Social Share Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_duration',
+						'title' => 'Duration Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_total_enrolled',
+						'title' => 'Total Enrolled Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_update_date',
+						'title' => 'Update Date Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_progress_bar',
+						'title' => 'Progress Bar Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_material',
+						'title' => 'Show Material Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_about',
+						'title' => 'About Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_description',
+						'title' => 'Description Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_benefits',
+						'title' => 'Course Benefits Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_requirements',
+						'title' => 'Requirements Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_target_audience',
+						'title' => 'Target Audience Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_announcements',
+						'title' => 'Announcements Enabled',
+						'operator_type' => 'boolean_operators',
+					),
+					array(
+						'source'        => TDE_APP_PREFIX,
+						'value'         => 'enable_course_review',
+						'title' => 'Review Enabled',
+						'operator_type' => 'boolean_operators',
+					)
+					
+				)
+			),
+		);
+
+		return $conditions;
+	}
+
 	public static function element_visibility_condition_check($default_value, $condition, $options)
 	{
 		$source   = $condition['source'];
 		$field    = $condition['field']['value'];
 		$operator = $condition['operator']['value'];
 		$operand  = $condition['operand']['value'];
+		$field_group   = isset($condition['field']['group']) ? $condition['field']['group'] : '';
 
 		if (isset($options['TUTOR_LMS-subscriptions'])) {
 			$subscription = (array) $options['TUTOR_LMS-subscriptions'];
@@ -619,7 +763,11 @@ class VisibilityCondition
 			$membership_feature = (array) $options['membership-feature'];
 			$fieldValue = self::get_membership_feature_field_value($membership_feature, $field);
 		} else {
-			$fieldValue = self::get_course_field_value($field, $options);
+			if ($field_group === 'lms-settings') {
+				$fieldValue = self::get_lms_settings_field_value($field);
+			} else {
+				$fieldValue = self::get_course_field_value($field, $options);
+			}
 		}
 
 		if ($source === TDE_APP_PREFIX) {
@@ -652,7 +800,7 @@ class VisibilityCondition
 						return in_array($operand, $fieldValue);
 					}
 				case 'user_state-not_equal': {
-						return in_array($operand, $fieldValue);
+						return !in_array($operand, $fieldValue);
 					}
 			}
 		}
@@ -800,6 +948,43 @@ class VisibilityCondition
 					}
 					return false;
 				}
+		}
+	}
+
+	private static function get_lms_settings_field_value($field)
+	{
+		switch ($field) {
+			case 'is_membership_only_mode_enabled': {
+				$is_membership_only_mode_enabled = apply_filters('tutor_membership_only_mode', false);
+				return $is_membership_only_mode_enabled;
+			}
+
+			case 'enable_spotlight_mode':
+			case 'display_course_instructors':
+			case 'enable_wishlist':
+			case 'enable_q_and_a_on_course':
+			case 'enable_course_author':
+			case 'enable_course_level':
+			case 'enable_course_share':
+			case 'enable_course_duration':
+			case 'enable_course_total_enrolled':
+			case 'enable_course_update_date':
+			case 'enable_course_progress_bar':
+			case 'enable_course_material':
+			case 'enable_course_about':
+			case 'enable_course_description':
+			case 'enable_course_benefits':
+			case 'enable_course_requirements':
+			case 'enable_course_target_audience':
+			case 'enable_course_announcements':
+			case 'enable_course_review': {
+				$is_enabled = tutor_utils()->get_option($field, false);
+				return $is_enabled;
+			}
+
+			default: {
+				return false;
+			}
 		}
 	}
 }

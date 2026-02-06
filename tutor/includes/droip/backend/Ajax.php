@@ -73,6 +73,13 @@ class Ajax {
 		if ( 'add_to_cart_course' === $request_method ) {
 			$course_id = Input::post( 'course_id' );
 			$res       = tutor_add_to_cart( $course_id );
+
+			// check is user logged in or not
+			if (! is_user_logged_in() ) {
+				$res['redirect'] = true;
+				$res['data'] = wp_login_url( wp_get_referer() );
+			}
+
 			wp_send_json_success( $res );
 		}
 

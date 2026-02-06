@@ -1174,6 +1174,19 @@ class Course extends Tutor_Base {
 			delete_post_meta( $course_id, '_elementor_edit_mode' );
 		} elseif ( 'droip' === $builder ) {
 			delete_post_meta( $course_id, 'droip_editor_mode' );
+		} elseif ( 'divi' === $builder ) {
+			$old_post_content     = get_post_meta( $course_id, '_et_pb_old_content', true );
+			$course               = get_post( $course_id );
+			$course->post_content = $old_post_content;
+			$result               = wp_update_post( $course );
+
+			if ( $result && ! is_wp_error( $result ) ) {
+				update_post_meta( $course_id, '_et_pb_use_builder', 'off' );
+				update_post_meta( $course_id, '_et_pb_old_content', '' );
+				delete_post_meta( $course_id, '_et_dynamic_cached_shortcodes' );
+				delete_post_meta( $course_id, '_et_dynamic_cached_attributes' );
+				delete_post_meta( $course_id, '_et_builder_module_features_cache' );
+			}
 		}
 
 		$this->json_response(
@@ -2119,12 +2132,17 @@ class Course extends Tutor_Base {
 			die( esc_html__( 'Please Sign-In', 'tutor' ) );
 		}
 
+		if ( ! tutor_utils()->is_enrolled( $course_id, $user_id ) ) {
+			die( esc_html__( 'User is not enrolled in course', 'tutor' ) );
+		}
+
 		/**
 		 * Filter hook provided to restrict course completion. This is useful
 		 * for specific cases like prerequisites. WP_Error should be returned
 		 * from the filter value to prevent the completion.
 		 */
 		$can_complete = apply_filters( 'tutor_user_can_complete_course', true, $user_id, $course_id );
+
 		if ( is_wp_error( $can_complete ) ) {
 			tutor_utils()->redirect_to( $permalink, $can_complete->get_error_message(), 'error' );
 		} else {
@@ -2785,16 +2803,22 @@ class Course extends Tutor_Base {
 
 		foreach ( $assignments as $row ) {
 
-			$submitted_assignment      = tutor_utils()->is_assignment_submitted( $row->ID );
-			$is_reviewed_by_instructor = null === $submitted_assignment
+			$assignment_submission     = tutor_utils()->is_assignment_submitted( $row->ID );
+			$is_reviewed_by_instructor = ! count( $assignment_submission )
 											? false
-											: get_comment_meta( $submitted_assignment->comment_ID, 'evaluate_time', true );
+											: get_comment_meta( $assignment_submission[0]->comment_ID, 'evaluate_time', true );
 
-			if ( $submitted_assignment && $is_reviewed_by_instructor ) {
-				$pass_mark  = tutor_utils()->get_assignment_option( $submitted_assignment->comment_post_ID, 'pass_mark' );
-				$given_mark = get_comment_meta( $submitted_assignment->comment_ID, 'assignment_mark', true );
-
-				if ( $given_mark < $pass_mark ) {
+			if ( $assignment_submission && $is_reviewed_by_instructor ) {
+				$pass_mark  = tutor_utils()->get_assignment_option( $row->ID, 'pass_mark' );
+				$has_passed = false;
+				foreach ( $assignment_submission as $submission ) {
+					$given_mark = (int) get_comment_meta( $submission->comment_ID, 'assignment_mark', true );
+					if ( $given_mark >= $pass_mark ) {
+						$has_passed = true;
+						break;
+					}
+				}
+				if ( ! $has_passed ) {
 					$required_assignment_pass++;
 				}
 			} else {
@@ -2986,6 +3010,25 @@ class Course extends Tutor_Base {
 			if ( $password_protected ) {
 				wp_send_json_error( __( 'This course is password protected', 'tutor' ) );
 			}
+
+			/**
+			 * This check was added to address a security issue where users could
+			 * enroll in a course via an AJAX call without purchasing it.
+			 *
+			 * To prevent this, we now verify whether the course is paid.
+			 * Additionally, we check if the user is already enrolled, since
+			 * Tutor's default behavior enrolls users automatically upon purchase.
+			 *
+			 * @since 3.9.4
+			 */
+			if ( tutor_utils()->is_course_purchasable( $course_id ) ) {
+				$is_enrolled = (bool) tutor_utils()->is_enrolled( $course_id, $user_id );
+
+				if ( ! $is_enrolled ) {
+					wp_send_json_error( __( 'Please purchase the course before enrolling', 'tutor' ) );
+				}
+			}
+
 			$enroll = tutor_utils()->do_enroll( $course_id, 0, $user_id );
 			if ( $enroll ) {
 				wp_send_json_success( __( 'Enrollment successfully done!', 'tutor' ) );

@@ -12,6 +12,7 @@ use TUTOR\Course;
 use TUTOR_CERT\Certificate;
 use TutorPro\Subscription\Subscription;
 use TutorPro\Subscription\Models\PlanModel;
+use TutorPro\Subscription\Models\SubscriptionModel;
 use Tutor\Ecommerce\CheckoutController;
 use TutorPro\GiftCourse\GiftCourse;
 use TutorPro\Subscription\Settings;
@@ -82,6 +83,27 @@ trait ActionsGenerator
 					if (! $entry_box_button_logic->show_enroll_btn) {
 						return '';
 					}
+
+					if (tutor()->has_pro && Subscription::is_enabled()) {
+						$subscription_model = new SubscriptionModel();
+						$tutor_subscription_enrollment = false;
+
+						// For hybrid mode.
+						if (Course::PRICE_TYPE_PAID === tutor_utils()->price_type($course_id) && $subscription_model->has_course_access($course_id)) {
+							$tutor_subscription_enrollment = true;
+						}
+
+						// For membership only mode.
+						if (Settings::membership_only_mode_enabled() && $subscription_model->has_course_access($course_id)) {
+							$tutor_subscription_enrollment = true;
+						}
+
+						if ($tutor_subscription_enrollment) {
+							$extra_attributes .= " data-tutor_subscription_enrollment='true'";
+						}
+					}
+
+
 					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
 				}
 
@@ -210,6 +232,13 @@ trait ActionsGenerator
 					$pricing_page = Settings::get_pricing_page_url();
 					if ($pricing_page) {
 						$extra_attributes .= " data-pricing_url='" . $pricing_page . "'";
+						// if (is_user_logged_in()) { // removed to always direct to pricing page
+						// } else {
+						// 	$login_url = wp_login_url(wp_get_referer());
+
+						// 	$extra_attributes .= " data-login_url='" . $login_url . "'";
+						// }
+
 						return $this->generate_child_element_with_parent_droip_data($extra_attributes);
 					}
 
@@ -218,15 +247,15 @@ trait ActionsGenerator
 
 			case 'gift_course_btn': {
 					if (is_user_logged_in()) {
-						$extra_attributes .= " data-tutor-modal-target='tutor-gift-this-course-modal'";
+						$modal_id = 'tutor-gift-this-course-modal-' . wp_generate_uuid4();
+						$extra_attributes .= " data-tutor-modal-target='$modal_id'";
 
 						$btn = $this->generate_child_element_with_parent_droip_data($extra_attributes);
-
 						// Capture template output
 						ob_start();
 						tutor_load_template(
 							'single.course.gift-this-course-modal',
-							array('course_id' => $course_id),
+							array('course_id' => $course_id, 'modal_id' => $modal_id),
 							true
 						);
 
@@ -270,50 +299,51 @@ trait ActionsGenerator
 			$entry_box_button_logic->show_view_cart_btn = false;
 		}
 
-		if ($is_paid_course) {
+		// Remove this part. These logic come from tutor_entry_box_buttons function.
+		// if ($is_paid_course) {
 
-			if (tutor()->has_pro && Subscription::is_enabled() && $course_id) {
+		// 	if (tutor()->has_pro && Subscription::is_enabled() && $course_id) {
 
+		// 		$plan_model = new PlanModel();
+		// 		// Checking is course has subscription plan then show buy now button.
+		// 		$selling_option = Course::get_selling_option($course_id);
+		// 		if (!$selling_option) {
+		// 			$selling_option = Course::SELLING_OPTION_ALL;
+		// 		}
+		// 		if ($selling_option === Course::SELLING_OPTION_SUBSCRIPTION || $selling_option === Course::SELLING_OPTION_BOTH || $selling_option === Course::SELLING_OPTION_ALL) {
 
-				// Checking is course has subscription plan then show buy now button.
-				$selling_option = Course::get_selling_option($course_id);
-				if (!$selling_option) {
-					$selling_option = Course::SELLING_OPTION_ALL;
-				}
-				if ($selling_option === Course::SELLING_OPTION_SUBSCRIPTION || $selling_option === Course::SELLING_OPTION_BOTH || $selling_option === Course::SELLING_OPTION_ALL) {
-					$plan_model = new PlanModel();
-					$items = $plan_model->get_subscription_plans($course_id, PlanModel::STATUS_ACTIVE);
+		// 			$items = $plan_model->get_subscription_plans($course_id, PlanModel::STATUS_ACTIVE);
 
-					if (count($items) > 0) {
-						$entry_box_button_logic->show_subscribe_now_btn = true;
-					}
-				}
+		// 			if (count($items) > 0) {
+		// 				$entry_box_button_logic->show_subscribe_now_btn = true;
+		// 			}
+		// 		}
 
-				// Checking is course has membership plan enabled
-				$selling_option = Course::get_selling_option($course_id);
-				if (!$selling_option) {
-					$selling_option = Course::SELLING_OPTION_ALL;
-				}
-				if ($selling_option === Course::SELLING_OPTION_MEMBERSHIP || $selling_option === Course::SELLING_OPTION_ALL) {
-					$active_membership_plans     = $plan_model->get_membership_plans(PlanModel::STATUS_ACTIVE);
-					if (count($active_membership_plans) > 0) {
-						$entry_box_button_logic->show_membership_btn = true;
-					}
-				}
-			}
+		// 		// Checking is course has membership plan enabled
+		// 		$selling_option = Course::get_selling_option($course_id);
+		// 		if (!$selling_option) {
+		// 			$selling_option = Course::SELLING_OPTION_ALL;
+		// 		}
+		// 		if ($selling_option === Course::SELLING_OPTION_MEMBERSHIP || $selling_option === Course::SELLING_OPTION_ALL) {
+		// 			$active_membership_plans     = $plan_model->get_membership_plans(PlanModel::STATUS_ACTIVE);
+		// 			if (count($active_membership_plans) > 0) {
+		// 				$entry_box_button_logic->show_membership_btn = true;
+		// 			}
+		// 		}
+		// 	}
 
-			// Checking is course can be gifted then show gift course button.
-			if (class_exists('\TutorPro\GiftCourse\InitGift') && class_exists('TutorPro\GiftCourse\GiftCourse')) {
-				$init_gift = new \TutorPro\GiftCourse\InitGift();
-				if (tutor()->has_pro && $init_gift->is_enabled() && $course_id) {
-					$can_gift_this_course = GiftCourse::can_gift_course($course_id);
+		// 	// Checking is course can be gifted then show gift course button.
+		// 	if (class_exists('\TutorPro\GiftCourse\InitGift') && class_exists('TutorPro\GiftCourse\GiftCourse')) {
+		// 		$init_gift = new \TutorPro\GiftCourse\InitGift();
+		// 		if (tutor()->has_pro && $init_gift->is_enabled() && $course_id) {
+		// 			$can_gift_this_course = GiftCourse::can_gift_course($course_id);
 
-					if ($can_gift_this_course) {
-						$entry_box_button_logic->show_gift_course_btn = true;
-					}
-				}
-			}
-		}
+		// 			if ($can_gift_this_course) {
+		// 				$entry_box_button_logic->show_gift_course_btn = true;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		return $entry_box_button_logic;
 	}

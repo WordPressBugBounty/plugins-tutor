@@ -1329,7 +1329,7 @@ if ( ! function_exists( 'tutor_entry_box_buttons' ) ) {
 			}
 		}
 
-		return apply_filters( 'tutor_enrollment_buttons', $conditional_buttons );
+		return apply_filters( 'tutor_enrollment_buttons', $conditional_buttons, $course_id, $user_id );
 	}
 }
 
@@ -1642,16 +1642,22 @@ if ( ! function_exists( 'tutor_get_formatted_price' ) ) {
 	 * @return string|void
 	 */
 	function tutor_get_formatted_price( $price ) {
-		$price = floatval( Input::sanitize( $price ) );
+		$price       = floatval( Input::sanitize( $price ) );
+		$monetize_by = tutor_utils()->get_option( 'monetize_by' );
+		if ( Ecommerce::MONETIZE_BY === $monetize_by ) {
+			$currency_symbol    = Settings::get_currency_symbol_by_code( tutor_utils()->get_option( OptionKeys::CURRENCY_CODE, 'USD' ) );
+			$currency_position  = tutor_utils()->get_option( OptionKeys::CURRENCY_POSITION, 'left' );
+			$thousand_separator = tutor_utils()->get_option( OptionKeys::THOUSAND_SEPARATOR, ',' );
+			$decimal_separator  = tutor_utils()->get_option( OptionKeys::DECIMAL_SEPARATOR, '.' );
+			$no_of_decimal      = tutor_utils()->get_option( OptionKeys::NUMBER_OF_DECIMALS, '2' );
 
-		$currency_symbol    = Settings::get_currency_symbol_by_code( tutor_utils()->get_option( OptionKeys::CURRENCY_CODE, 'USD' ) );
-		$currency_position  = tutor_utils()->get_option( OptionKeys::CURRENCY_POSITION, 'left' );
-		$thousand_separator = tutor_utils()->get_option( OptionKeys::THOUSAND_SEPARATOR, ',' );
-		$decimal_separator  = tutor_utils()->get_option( OptionKeys::DECIMAL_SEPARATOR, '.' );
-		$no_of_decimal      = tutor_utils()->get_option( OptionKeys::NUMBER_OF_DECIMALS, '2' );
-
-		$price = number_format( $price, $no_of_decimal, $decimal_separator, $thousand_separator );
-		$price = 'left' === $currency_position ? $currency_symbol . $price : $price . $currency_symbol;
+			$price = number_format( $price, $no_of_decimal, $decimal_separator, $thousand_separator );
+			$price = 'left' === $currency_position ? $currency_symbol . $price : $price . $currency_symbol;
+		} elseif ( 'wc' === $monetize_by ) {
+			$price = wc_price( $price );
+		} elseif ( 'edd' === $monetize_by ) {
+			$price = edd_currency_filter( edd_format_amount( $price ) );
+		}
 
 		return $price;
 	}
@@ -1803,7 +1809,7 @@ if ( ! function_exists( 'tutor_is_local_env' ) ) {
 
 
 
-if ( ! function_exists( 'get_tutor_post_types') ) {
+if ( ! function_exists( 'get_tutor_post_types' ) ) {
 	/**
 	 * Get tutor post type list
 	 *
@@ -1832,5 +1838,41 @@ if ( ! function_exists( 'get_tutor_post_types') ) {
 		}
 
 		return $valid_post_types;
+	}
+}
+
+if ( ! function_exists( 'tutor_decode_unicode_sequences' ) ) {
+	/**
+	 * Decode Unicode escape sequences in a string to their corresponding UTF-8 characters.
+	 *
+	 * Example:
+	 *   decode_unicode_escapes('Hello\\u0020World')  => 'Hello World'
+	 *   decode_unicode_escapes('\\u{1F600}')       => '😀'
+	 *
+	 * Notes:
+	 * - Input and output are expected to be UTF-8 encoded.
+	 * - Behavior for malformed sequences is to preserve the original bytes rather than throw.
+	 *
+	 * @param string $str The input string possibly containing Unicode escape sequences.
+	 * @return string The string with Unicode escape sequences decoded into UTF-8 characters.
+	 */
+	function tutor_decode_unicode_sequences( $str ) {
+		if ( empty( $str ) ) {
+			return '';
+		}
+
+		// Step 1: Decode \uXXXX or uXXXX sequences.
+		$str = preg_replace_callback(
+			'/\\\\?u([0-9a-fA-F]{4})/',
+			function ( $m ) {
+				return mb_convert_encoding( pack( 'H*', $m[1] ), 'UTF-8', 'UCS-2BE' );
+			},
+			$str
+		);
+
+		// Step 2: Decode HTML entities like &lt;, &nbsp;.
+		$str = html_entity_decode( $str, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+
+		return $str;
 	}
 }

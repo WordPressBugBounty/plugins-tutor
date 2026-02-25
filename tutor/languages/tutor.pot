@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tutor LMS 3.9.6\n"
+"Project-Id-Version: Tutor LMS 3.9.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tutor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-28T10:04:52+00:00\n"
+"POT-Creation-Date: 2026-02-25T08:45:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: tutor\n"
@@ -1026,7 +1026,7 @@ msgstr ""
 #: classes/Options_V2.php:1487
 #: classes/Options_V2.php:1503
 #: classes/Options_V2.php:1511
-#: classes/User.php:469
+#: classes/User.php:464
 msgid "Enable"
 msgstr ""
 
@@ -3641,15 +3641,15 @@ msgstr ""
 msgid "Tutor &rsaquo; Setup Wizard"
 msgstr ""
 
-#: classes/User.php:462
+#: classes/User.php:457
 msgid "As membership is turned off, students and instructors will not be able to sign up. <strong>Press Enable</strong> or go to <strong>Settings > General > Membership</strong> and enable \"Anyone can register\"."
 msgstr ""
 
-#: classes/User.php:473
+#: classes/User.php:468
 msgid "Dismiss"
 msgstr ""
 
-#: classes/User.php:582
+#: classes/User.php:577
 msgid "User list fetched successfully!"
 msgstr ""
 

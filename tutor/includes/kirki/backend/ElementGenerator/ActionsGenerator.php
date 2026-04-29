@@ -3,10 +3,10 @@
 /**
  * Preview script for html markup generator
  *
- * @package tutor-droip-elements
+ * @package tutor-kirki-elements
  */
 
-namespace TutorLMSDroip\ElementGenerator;
+namespace TutorLMSKirki\ElementGenerator;
 
 use TUTOR\Course;
 use TUTOR_CERT\Certificate;
@@ -25,7 +25,7 @@ if (! defined('ABSPATH')) {
  * Class ActionsGenerator
  * This class is used to define all helper functions.
  *
- * @package TutorLMSDroip\ElementGenerator
+ * @package TutorLMSKirki\ElementGenerator
  */
 trait ActionsGenerator
 {
@@ -58,7 +58,7 @@ trait ActionsGenerator
 						return '';
 					}
 
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 			case 'wishlisted_btn': {
 					if (! is_user_logged_in()) {
@@ -69,7 +69,7 @@ trait ActionsGenerator
 						return '';
 					}
 
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 		}
 
@@ -104,7 +104,7 @@ trait ActionsGenerator
 					}
 
 
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'add_to_cart_btn': {
@@ -114,7 +114,7 @@ trait ActionsGenerator
 					}
 
 					if ($selling_option === Course::SELLING_OPTION_ALL || $selling_option === Course::SELLING_OPTION_ONE_TIME || $selling_option === Course::SELLING_OPTION_BOTH) {
-						return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 					}
 					return "";
 				}
@@ -124,7 +124,7 @@ trait ActionsGenerator
 					if (!$is_course_in_user_cart) {
 						return '';
 					}
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'view_cart_btn': {
@@ -133,23 +133,23 @@ trait ActionsGenerator
 						return '';
 					}
 					$extra_attributes .= " data-cart_url='" . tutor_get_cart_url() . "'";
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'start_learning_btn': {
-				if (!$entry_box_button_logic->show_start_learning_btn) {
-					return '';
-				}
-				$is_course_completed = tutor_utils()->is_completed_course($course_id, get_current_user_id());
-				if ($is_course_completed) {
-					return '';
-				}
+					if (! $entry_box_button_logic->show_start_learning_btn) {
+						return '';
+					}
+					$is_course_completed = tutor_utils()->is_completed_course($course_id, get_current_user_id());
+					if ($is_course_completed) {
+						return '';
+					}
 				$lession_url = tutor_utils()->get_course_first_lesson($course_id);
 
 				$is_public_course = get_post_meta($course_id, '_tutor_is_public_course', true);
 				$extra_attributes .= " data-lession_url=$lession_url data-course_is_public=$is_public_course";
-				return $this->generate_child_element_with_parent_droip_data($extra_attributes);
-			}
+				return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
+				}
 
 			case 'continue_learning_btn': {
 					if (! $entry_box_button_logic->show_continue_learning_btn) {
@@ -160,7 +160,7 @@ trait ActionsGenerator
 						return '';
 					}
 					$extra_attributes .= " data-continue_learning_url='" . tutor_utils()->get_course_first_lesson() . "'";
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'complete_course_btn': {
@@ -172,13 +172,13 @@ trait ActionsGenerator
 						return '';
 					}
 
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'retake_course_btn': {
 					if ($entry_box_button_logic->show_retake_course_btn || ($entry_box_button_logic->show_certificate_view_btn && function_exists('TUTOR_CERT'))) {
 						$extra_attributes .= " data-continue_learning_url='" . tutor_utils()->get_course_first_lesson() . "'";
-						return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 					}
 
 					return "";
@@ -209,7 +209,7 @@ trait ActionsGenerator
 						$certificate_url = (new Certificate(true))->get_certificate($course_id);
 
 						$extra_attributes .= " data-certificate_url='" . $certificate_url . "'";
-						return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 					}
 
 					return '';
@@ -227,7 +227,7 @@ trait ActionsGenerator
 						$extra_attributes .= " data-login_url='" . $login_url . "'";
 					}
 
-					return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+					return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 				}
 
 			case 'membership_btn': {
@@ -241,7 +241,7 @@ trait ActionsGenerator
 						// 	$extra_attributes .= " data-login_url='" . $login_url . "'";
 						// }
 
-						return $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						return $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 					}
 
 					return "";
@@ -252,7 +252,7 @@ trait ActionsGenerator
 						$modal_id = 'tutor-gift-this-course-modal-' . wp_generate_uuid4();
 						$extra_attributes .= " data-tutor-modal-target='$modal_id'";
 
-						$btn = $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						$btn = $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 						// Capture template output
 						ob_start();
 						tutor_load_template(
@@ -269,7 +269,7 @@ trait ActionsGenerator
 						// direct to login page if not logged in
 						$login_url = wp_login_url(wp_get_referer());
 						$extra_attributes .= " data-login_url='" . $login_url . "'";
-						$btn = $this->generate_child_element_with_parent_droip_data($extra_attributes);
+						$btn = $this->generate_child_element_with_parent_kirki_data($extra_attributes);
 
 						// Return button + modal
 						return $btn;
@@ -350,7 +350,7 @@ trait ActionsGenerator
 		return $entry_box_button_logic;
 	}
 
-	private function generate_child_element_with_parent_droip_data($extra_attributes)
+	private function generate_child_element_with_parent_kirki_data($extra_attributes)
 	{
 		$children_html = $this->generate_child_elements();
 		// echo "<pre>";var_dump($this->element['parentId'], $this->elements[$this->element['parentId'] ]);die;

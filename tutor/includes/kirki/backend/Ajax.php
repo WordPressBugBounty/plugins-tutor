@@ -78,7 +78,7 @@ class Ajax {
 				wp_send_json_error( 'Course not found!' );
 			}
 
-			if ( $this->is_course_purchasable( $course_id ) ) {
+			if ( tutor_utils()->is_course_purchasable( $course_id ) ) {
 				wp_send_json_error( 'You cannot enroll in this course without purchasing it first.' );
 			}
 			

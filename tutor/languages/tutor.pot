@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tutor LMS 3.9.13\n"
+"Project-Id-Version: Tutor LMS 3.9.14\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tutor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-17T09:47:41+00:00\n"
+"POT-Creation-Date: 2026-06-29T09:21:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tutor\n"
@@ -394,8 +394,8 @@ msgstr ""
 #: classes/Admin.php:188
 #: classes/Announcements.php:65
 #: classes/Options_V2.php:1502
-#: classes/Utils.php:9111
-#: classes/Utils.php:9397
+#: classes/Utils.php:9107
+#: classes/Utils.php:9393
 #: views/fragments/announcement-list.php:253
 msgid "Announcements"
 msgstr ""
@@ -403,7 +403,7 @@ msgstr ""
 #: classes/Admin.php:197
 #: classes/Admin.php:198
 #: classes/Quiz_Attempts_List.php:85
-#: classes/Utils.php:9407
+#: classes/Utils.php:9403
 #: templates/dashboard.php:54
 #: templates/dashboard/quiz-attempts.php:31
 msgid "Quiz Attempts"
@@ -411,7 +411,7 @@ msgstr ""
 
 #: classes/Admin.php:205
 #: classes/Options_V2.php:1391
-#: classes/Utils.php:9106
+#: classes/Utils.php:9102
 #: templates/dashboard.php:54
 #: assets/js/tutor-course-builder.js:13497
 msgid "Q&A"
@@ -1367,7 +1367,7 @@ msgstr ""
 #: classes/Tutor_Setup.php:338
 #: classes/Tutor_Setup.php:471
 #: classes/Tutor_Setup.php:540
-#: classes/Utils.php:9372
+#: classes/Utils.php:9368
 #: templates/dashboard/question-answer.php:63
 msgid "Instructor"
 msgstr ""
@@ -1837,7 +1837,7 @@ msgid "Select a monetization option to generate revenue by selling courses."
 msgstr ""
 
 #: classes/Options_V2.php:1051
-#: classes/WooCommerce.php:581
+#: classes/WooCommerce.php:582
 msgid "WooCommerce"
 msgstr ""
 
@@ -2136,7 +2136,7 @@ msgid "Toggle to show instructor info"
 msgstr ""
 
 #: classes/Options_V2.php:1384
-#: classes/Utils.php:9452
+#: classes/Utils.php:9448
 #: templates/dashboard/wishlist.php:23
 #: templates/single/course/lead-info.php:102
 msgid "Wishlist"
@@ -2316,7 +2316,7 @@ msgid "Ocean"
 msgstr ""
 
 #: classes/Options_V2.php:1627
-#: classes/Utils.php:8987
+#: classes/Utils.php:8983
 msgid "Custom"
 msgstr ""
 
@@ -3055,11 +3055,11 @@ msgstr ""
 msgid "Question settings is required with array data"
 msgstr ""
 
-#: classes/QuizBuilder.php:442
+#: classes/QuizBuilder.php:446
 msgid "Quiz saved successfully"
 msgstr ""
 
-#: classes/QuizBuilder.php:444
+#: classes/QuizBuilder.php:448
 #: assets/js/tutor-addon-list.js:519
 #: assets/js/tutor-admin.js:189
 #: assets/js/tutor-admin.js:199
@@ -3416,7 +3416,7 @@ msgid "Tutor Instructor"
 msgstr ""
 
 #: classes/Tutor.php:1158
-#: classes/Utils.php:9427
+#: classes/Utils.php:9423
 #: templates/dashboard.php:48
 #: templates/dashboard/dashboard.php:136
 msgid "Dashboard"
@@ -3870,131 +3870,131 @@ msgstr ""
 msgid "Set Withdraw Method"
 msgstr ""
 
-#: classes/Utils.php:8837
+#: classes/Utils.php:8833
 msgid "Try adjusting your filters."
 msgstr ""
 
-#: classes/Utils.php:8851
+#: classes/Utils.php:8847
 msgid "Try using different keywords."
 msgstr ""
 
-#: classes/Utils.php:8982
+#: classes/Utils.php:8978
 msgid "All Time"
 msgstr ""
 
-#: classes/Utils.php:8983
+#: classes/Utils.php:8979
 #: templates/dashboard/purchase_history.php:47
 msgid "Today"
 msgstr ""
 
-#: classes/Utils.php:8984
+#: classes/Utils.php:8980
 msgid "Last 30 Days"
 msgstr ""
 
-#: classes/Utils.php:8985
+#: classes/Utils.php:8981
 msgid "Last 90 Days"
 msgstr ""
 
-#: classes/Utils.php:8986
+#: classes/Utils.php:8982
 msgid "Last 365 Days"
 msgstr ""
 
-#: classes/Utils.php:9098
+#: classes/Utils.php:9094
 #: assets/js/tutor-course-builder.js:3974
 msgid "Course Info"
 msgstr ""
 
-#: classes/Utils.php:9102
-#: classes/Utils.php:9439
+#: classes/Utils.php:9098
+#: classes/Utils.php:9435
 #: templates/dashboard/reviews.php:28
 #: templates/dashboard/reviews/given-reviews.php:27
 msgid "Reviews"
 msgstr ""
 
-#: classes/Utils.php:9351
+#: classes/Utils.php:9347
 #: templates/single/lesson/sidebar_question_and_answer.php:43
 msgid "No Data Available in this Section"
 msgstr ""
 
-#: classes/Utils.php:9352
+#: classes/Utils.php:9348
 msgid "No Data Found from your Search/Filter"
 msgstr ""
 
-#: classes/Utils.php:9377
+#: classes/Utils.php:9373
 #: views/elements/create-course-empty-state.php:25
 msgid "Create Course"
 msgstr ""
 
-#: classes/Utils.php:9382
+#: classes/Utils.php:9378
 msgid "Create Bundle"
 msgstr ""
 
-#: classes/Utils.php:9387
+#: classes/Utils.php:9383
 #: templates/dashboard.php:48
 #: templates/dashboard/dashboard.php:338
 #: templates/dashboard/my-courses.php:75
 msgid "My Courses"
 msgstr ""
 
-#: classes/Utils.php:9402
+#: classes/Utils.php:9398
 #: templates/dashboard/withdraw.php:57
 msgid "Withdrawals"
 msgstr ""
 
-#: classes/Utils.php:9431
+#: classes/Utils.php:9427
 #: templates/dashboard/my-profile.php:65
 msgid "My Profile"
 msgstr ""
 
-#: classes/Utils.php:9435
+#: classes/Utils.php:9431
 #: templates/dashboard/dashboard.php:166
 #: templates/dashboard/enrolled-courses.php:25
 msgid "Enrolled Courses"
 msgstr ""
 
-#: classes/Utils.php:9443
+#: classes/Utils.php:9439
 #: templates/dashboard/my-quiz-attempts.php:35
 msgid "My Quiz Attempts"
 msgstr ""
 
-#: classes/Utils.php:9458
+#: classes/Utils.php:9454
 #: templates/dashboard/purchase_history.php:77
 #: templates/dashboard/purchase_history.php:98
 msgid "Order History"
 msgstr ""
 
-#: classes/Utils.php:9465
+#: classes/Utils.php:9461
 #: templates/dashboard/question-answer.php:53
 #: templates/single/course/enrolled/question_and_answer.php:114
 #: views/pages/question_answer.php:74
 msgid "Question & Answer"
 msgstr ""
 
-#: classes/Utils.php:9543
+#: classes/Utils.php:9539
 msgid "HTML 5 (mp4)"
 msgstr ""
 
-#: classes/Utils.php:9547
+#: classes/Utils.php:9543
 msgid "External URL"
 msgstr ""
 
-#: classes/Utils.php:9551
+#: classes/Utils.php:9547
 msgid "YouTube"
 msgstr ""
 
-#: classes/Utils.php:9555
+#: classes/Utils.php:9551
 msgid "Vimeo"
 msgstr ""
 
-#: classes/Utils.php:9559
+#: classes/Utils.php:9555
 msgid "Embedded"
 msgstr ""
 
-#: classes/Utils.php:9563
+#: classes/Utils.php:9559
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Utils.php:10262
+#: classes/Utils.php:10258
 #: assets/js/tutor-addon-list.js:1944
 #: assets/js/tutor-addon-list.js:1950
 #: assets/js/tutor-coupon.js:1802
@@ -4024,86 +4024,86 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
-#: classes/Utils.php:10267
+#: classes/Utils.php:10263
 msgid "You are not authorzied to perform this action"
 msgstr ""
 
-#: classes/Utils.php:10268
+#: classes/Utils.php:10264
 msgid "Nonce not matched. Action failed!"
 msgstr ""
 
-#: classes/Utils.php:10269
+#: classes/Utils.php:10265
 msgid "Invalid request"
 msgstr ""
 
-#: classes/Utils.php:10270
+#: classes/Utils.php:10266
 msgid "Authentication failed"
 msgstr ""
 
-#: classes/Utils.php:10271
+#: classes/Utils.php:10267
 msgid "Authorization required"
 msgstr ""
 
-#: classes/Utils.php:10272
+#: classes/Utils.php:10268
 msgid "Requested resource not found"
 msgstr ""
 
-#: classes/Utils.php:10273
+#: classes/Utils.php:10269
 msgid "Internal server error"
 msgstr ""
 
-#: classes/Utils.php:10274
+#: classes/Utils.php:10270
 msgid "Request timed out"
 msgstr ""
 
-#: classes/Utils.php:10275
+#: classes/Utils.php:10271
 msgid "Access to this resource is forbidden"
 msgstr ""
 
-#: classes/Utils.php:10276
+#: classes/Utils.php:10272
 msgid "HTTP method not allowed"
 msgstr ""
 
-#: classes/Utils.php:10277
+#: classes/Utils.php:10273
 msgid "Too many requests"
 msgstr ""
 
-#: classes/Utils.php:10278
+#: classes/Utils.php:10274
 msgid "Validation error"
 msgstr ""
 
-#: classes/Utils.php:10279
+#: classes/Utils.php:10275
 msgid "Database operation failed"
 msgstr ""
 
-#: classes/Utils.php:10280
+#: classes/Utils.php:10276
 msgid "Requested file not found"
 msgstr ""
 
-#: classes/Utils.php:10281
+#: classes/Utils.php:10277
 msgid "Unsupported media type"
 msgstr ""
 
-#: classes/Utils.php:10327
+#: classes/Utils.php:10323
 msgid "Gutenberg"
 msgstr ""
 
-#: classes/Utils.php:10342
+#: classes/Utils.php:10338
 msgid "Droip"
 msgstr ""
 
-#: classes/Utils.php:10360
+#: classes/Utils.php:10356
 msgid "Elementor"
 msgstr ""
 
-#: classes/Utils.php:10388
+#: classes/Utils.php:10384
 #: assets/js/tutor-course-builder.js:13842
 #: assets/js/tutor-course-builder.js:26749
 msgid "Classic Editor"
 msgstr ""
 
 #. translators: %s: timestamp
-#: classes/Utils.php:10480
+#: classes/Utils.php:10476
 #, php-format
 msgid "%s left"
 msgstr ""
@@ -4113,84 +4113,92 @@ msgstr ""
 msgid "What's New"
 msgstr ""
 
-#: classes/Withdraw.php:60
+#: classes/Withdraw.php:61
 msgid "Bank Transfer"
 msgstr ""
 
-#: classes/Withdraw.php:62
+#: classes/Withdraw.php:63
 msgid "Get your payment directly into your bank account"
 msgstr ""
 
-#: classes/Withdraw.php:67
+#: classes/Withdraw.php:68
 msgid "Account Name"
 msgstr ""
 
-#: classes/Withdraw.php:71
+#: classes/Withdraw.php:72
 msgid "Account Number"
 msgstr ""
 
-#: classes/Withdraw.php:75
+#: classes/Withdraw.php:76
 msgid "Bank Name"
 msgstr ""
 
-#: classes/Withdraw.php:79
+#: classes/Withdraw.php:80
 msgid "IBAN"
 msgstr ""
 
-#: classes/Withdraw.php:83
+#: classes/Withdraw.php:84
 msgid "BIC / SWIFT"
 msgstr ""
 
-#: classes/Withdraw.php:90
+#: classes/Withdraw.php:91
 msgid "E-Check"
 msgstr ""
 
-#: classes/Withdraw.php:95
+#: classes/Withdraw.php:96
 msgid "Your Physical Address"
 msgstr ""
 
-#: classes/Withdraw.php:96
+#: classes/Withdraw.php:97
 msgid "We will send you an E-Check to this address directly."
 msgstr ""
 
-#: classes/Withdraw.php:102
+#: classes/Withdraw.php:103
 #: ecommerce/Ecommerce.php:228
 msgid "PayPal"
 msgstr ""
 
-#: classes/Withdraw.php:107
+#: classes/Withdraw.php:108
 msgid "PayPal E-Mail Address"
 msgstr ""
 
-#: classes/Withdraw.php:108
+#: classes/Withdraw.php:109
 msgid "We will use this email address to send the money to your Paypal account"
 msgstr ""
 
-#: classes/Withdraw.php:219
+#: classes/Withdraw.php:220
 msgid "Withdrawal information saved!"
 msgstr ""
 
+#: classes/Withdraw.php:249
+msgid "Another withdrawal request is in progress. Please try again."
+msgstr ""
+
 #. translators: 1: total pending withdraw request 2: available for withdraw
-#: classes/Withdraw.php:246
+#: classes/Withdraw.php:263
 #, php-format
 msgid "You have total %1$s pending withdraw request. You can't make more than %2$s withdraw request at a time"
 msgstr ""
 
-#: classes/Withdraw.php:258
+#: classes/Withdraw.php:274
 msgid "Please save withdraw method "
 msgstr ""
 
 #. translators: 1: strong tag start 2: min withdrawal amount 3: strong tag end
-#: classes/Withdraw.php:264
+#: classes/Withdraw.php:280
 #, php-format
 msgid "Minimum withdrawal amount is %1$s %2$s %3$s "
 msgstr ""
 
-#: classes/Withdraw.php:269
+#: classes/Withdraw.php:285
 msgid "Insufficient balance."
 msgstr ""
 
-#: classes/Withdraw.php:315
+#: classes/Withdraw.php:306
+msgid "Unable to process withdrawal request. Please try again."
+msgstr ""
+
+#: classes/Withdraw.php:322
 msgid "Withdrawal Request Sent!"
 msgstr ""
 
@@ -4199,15 +4207,15 @@ msgstr ""
 msgid "Rejected"
 msgstr ""
 
-#: classes/WooCommerce.php:272
+#: classes/WooCommerce.php:273
 msgid "Since monetization is currently disabled, your courses are set to free. Enable Tutor LMS monetization to start selling your courses."
 msgstr ""
 
-#: classes/WooCommerce.php:473
+#: classes/WooCommerce.php:474
 msgid "For Tutor"
 msgstr ""
 
-#: classes/WooCommerce.php:474
+#: classes/WooCommerce.php:475
 msgid "This checkmark ensure that you will sell a specific course via this product."
 msgstr ""
 
@@ -7136,7 +7144,7 @@ msgstr ""
 msgid "Please define alert class"
 msgstr ""
 
-#: templates/global/attachments.php:45
+#: templates/global/attachments.php:51
 msgid "No Attachment Found"
 msgstr ""
 

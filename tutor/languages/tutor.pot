@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tutor LMS 3.9.14\n"
+"Project-Id-Version: Tutor LMS 3.9.15\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tutor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-29T09:21:56+00:00\n"
+"POT-Creation-Date: 2026-07-06T05:23:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tutor\n"
@@ -376,7 +376,7 @@ msgstr ""
 
 #: classes/Admin.php:166
 #: classes/Admin.php:167
-#: classes/Post_types.php:195
+#: classes/Post_types.php:196
 #: templates/single/course/tags.php:18
 #: assets/js/tutor-course-builder.js:12650
 msgid "Tags"
@@ -2530,364 +2530,364 @@ msgid "No courses found in Trash."
 msgstr ""
 
 #: classes/Post_types.php:110
-#: classes/Post_types.php:242
-#: classes/Post_types.php:309
-#: classes/Post_types.php:349
-#: classes/Post_types.php:388
-#: classes/Post_types.php:503
+#: classes/Post_types.php:243
+#: classes/Post_types.php:310
+#: classes/Post_types.php:350
+#: classes/Post_types.php:389
+#: classes/Post_types.php:504
 msgid "Description."
 msgstr ""
 
-#: classes/Post_types.php:148
+#: classes/Post_types.php:149
 msgctxt "taxonomy general name"
 msgid "Course Categories"
 msgstr ""
 
-#: classes/Post_types.php:149
+#: classes/Post_types.php:150
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr ""
 
-#: classes/Post_types.php:150
+#: classes/Post_types.php:151
 msgid "Search Categories"
 msgstr ""
 
-#: classes/Post_types.php:151
+#: classes/Post_types.php:152
 msgid "Popular Categories"
 msgstr ""
 
-#: classes/Post_types.php:152
+#: classes/Post_types.php:153
 #: models/CourseModel.php:1135
 #: views/pages/course-list.php:68
 msgid "All Categories"
 msgstr ""
 
-#: classes/Post_types.php:155
+#: classes/Post_types.php:156
 msgid "Edit Category"
 msgstr ""
 
-#: classes/Post_types.php:156
+#: classes/Post_types.php:157
 msgid "Update Category"
 msgstr ""
 
-#: classes/Post_types.php:157
+#: classes/Post_types.php:158
 msgid "Add New Category"
 msgstr ""
 
-#: classes/Post_types.php:158
+#: classes/Post_types.php:159
 msgid "New Category Name"
 msgstr ""
 
-#: classes/Post_types.php:159
+#: classes/Post_types.php:160
 msgid "Separate categories with commas"
 msgstr ""
 
-#: classes/Post_types.php:160
+#: classes/Post_types.php:161
 msgid "Add or remove categories"
 msgstr ""
 
-#: classes/Post_types.php:161
+#: classes/Post_types.php:162
 msgid "Choose from the most used categories"
 msgstr ""
 
-#: classes/Post_types.php:162
+#: classes/Post_types.php:163
 #: assets/js/tutor-course-builder.js:8618
 #: assets/js/tutor-course-builder.js:8858
 msgid "No categories found."
 msgstr ""
 
-#: classes/Post_types.php:163
+#: classes/Post_types.php:164
 msgid "Course Categories"
 msgstr ""
 
-#: classes/Post_types.php:180
+#: classes/Post_types.php:181
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr ""
 
-#: classes/Post_types.php:181
+#: classes/Post_types.php:182
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr ""
 
-#: classes/Post_types.php:182
+#: classes/Post_types.php:183
 msgid "Search Tags"
 msgstr ""
 
-#: classes/Post_types.php:183
+#: classes/Post_types.php:184
 msgid "Popular Tags"
 msgstr ""
 
-#: classes/Post_types.php:184
+#: classes/Post_types.php:185
 msgid "All Tags"
 msgstr ""
 
-#: classes/Post_types.php:187
+#: classes/Post_types.php:188
 msgid "Edit Tag"
 msgstr ""
 
-#: classes/Post_types.php:188
+#: classes/Post_types.php:189
 msgid "Update Tag"
 msgstr ""
 
-#: classes/Post_types.php:189
+#: classes/Post_types.php:190
 msgid "Add New Tag"
 msgstr ""
 
-#: classes/Post_types.php:190
+#: classes/Post_types.php:191
 msgid "New Tag Name"
 msgstr ""
 
-#: classes/Post_types.php:191
+#: classes/Post_types.php:192
 msgid "Separate Tags with commas"
 msgstr ""
 
-#: classes/Post_types.php:192
+#: classes/Post_types.php:193
 msgid "Add or remove Tags"
 msgstr ""
 
-#: classes/Post_types.php:193
+#: classes/Post_types.php:194
 msgid "Choose from the most used Tags"
 msgstr ""
 
-#: classes/Post_types.php:194
+#: classes/Post_types.php:195
 msgid "No Tags found."
 msgstr ""
 
-#: classes/Post_types.php:224
+#: classes/Post_types.php:225
 msgctxt "post type general name"
 msgid "Lessons"
 msgstr ""
 
-#: classes/Post_types.php:225
+#: classes/Post_types.php:226
 msgctxt "post type singular name"
 msgid "Lesson"
 msgstr ""
 
-#: classes/Post_types.php:226
+#: classes/Post_types.php:227
 msgctxt "admin menu"
 msgid "Lessons"
 msgstr ""
 
-#: classes/Post_types.php:227
+#: classes/Post_types.php:228
 msgctxt "add new on admin bar"
 msgid "Lesson"
 msgstr ""
 
-#: classes/Post_types.php:228
+#: classes/Post_types.php:229
 msgctxt "tutor lesson add"
 msgid "Add New"
 msgstr ""
 
-#: classes/Post_types.php:229
+#: classes/Post_types.php:230
 msgid "Add New Lesson"
 msgstr ""
 
-#: classes/Post_types.php:230
+#: classes/Post_types.php:231
 msgid "New Lesson"
 msgstr ""
 
-#: classes/Post_types.php:231
+#: classes/Post_types.php:232
 msgid "Edit Lesson"
 msgstr ""
 
-#: classes/Post_types.php:232
+#: classes/Post_types.php:233
 msgid "View Lesson"
 msgstr ""
 
-#: classes/Post_types.php:233
+#: classes/Post_types.php:234
 #: assets/js/tutor-course-builder.js:21487
 #: assets/js/tutor-import-export.js:7200
 msgid "Lessons"
 msgstr ""
 
-#: classes/Post_types.php:234
+#: classes/Post_types.php:235
 msgid "Search Lessons"
 msgstr ""
 
-#: classes/Post_types.php:235
+#: classes/Post_types.php:236
 msgid "Parent Lessons:"
 msgstr ""
 
-#: classes/Post_types.php:236
+#: classes/Post_types.php:237
 msgid "No lessons found."
 msgstr ""
 
-#: classes/Post_types.php:237
+#: classes/Post_types.php:238
 msgid "No lessons found in Trash."
 msgstr ""
 
-#: classes/Post_types.php:291
+#: classes/Post_types.php:292
 msgctxt "post type general name"
 msgid "Quizzes"
 msgstr ""
 
-#: classes/Post_types.php:292
+#: classes/Post_types.php:293
 msgctxt "post type singular name"
 msgid "Quiz"
 msgstr ""
 
-#: classes/Post_types.php:293
+#: classes/Post_types.php:294
 msgctxt "admin menu"
 msgid "Quizzes"
 msgstr ""
 
-#: classes/Post_types.php:294
+#: classes/Post_types.php:295
 msgctxt "add new on admin bar"
 msgid "Quiz"
 msgstr ""
 
-#: classes/Post_types.php:295
+#: classes/Post_types.php:296
 msgctxt "tutor quiz add"
 msgid "Add New"
 msgstr ""
 
-#: classes/Post_types.php:296
+#: classes/Post_types.php:297
 msgid "Add New Quiz"
 msgstr ""
 
-#: classes/Post_types.php:297
+#: classes/Post_types.php:298
 msgid "New Quiz"
 msgstr ""
 
-#: classes/Post_types.php:298
+#: classes/Post_types.php:299
 msgid "Edit Quiz"
 msgstr ""
 
-#: classes/Post_types.php:299
+#: classes/Post_types.php:300
 msgid "View Quiz"
 msgstr ""
 
-#: classes/Post_types.php:300
+#: classes/Post_types.php:301
 #: assets/js/tutor-import-export.js:7204
 msgid "Quizzes"
 msgstr ""
 
-#: classes/Post_types.php:301
+#: classes/Post_types.php:302
 msgid "Search Quizzes"
 msgstr ""
 
-#: classes/Post_types.php:302
+#: classes/Post_types.php:303
 msgid "Parent Quizzes:"
 msgstr ""
 
-#: classes/Post_types.php:303
+#: classes/Post_types.php:304
 msgid "No quizzes found."
 msgstr ""
 
-#: classes/Post_types.php:304
+#: classes/Post_types.php:305
 msgid "No quizzes found in Trash."
 msgstr ""
 
-#: classes/Post_types.php:370
+#: classes/Post_types.php:371
 msgctxt "post type general name"
 msgid "Assignments"
 msgstr ""
 
-#: classes/Post_types.php:371
+#: classes/Post_types.php:372
 msgctxt "post type singular name"
 msgid "Assignment"
 msgstr ""
 
-#: classes/Post_types.php:372
+#: classes/Post_types.php:373
 msgctxt "admin menu"
 msgid "Assignments"
 msgstr ""
 
-#: classes/Post_types.php:373
+#: classes/Post_types.php:374
 msgctxt "add new on admin bar"
 msgid "Assignment"
 msgstr ""
 
-#: classes/Post_types.php:374
+#: classes/Post_types.php:375
 msgctxt "tutor assignment add"
 msgid "Add New"
 msgstr ""
 
-#: classes/Post_types.php:375
+#: classes/Post_types.php:376
 msgid "Add New Assignment"
 msgstr ""
 
-#: classes/Post_types.php:376
+#: classes/Post_types.php:377
 msgid "New Assignment"
 msgstr ""
 
-#: classes/Post_types.php:377
+#: classes/Post_types.php:378
 msgid "Edit Assignment"
 msgstr ""
 
-#: classes/Post_types.php:378
+#: classes/Post_types.php:379
 msgid "View Assignment"
 msgstr ""
 
-#: classes/Post_types.php:379
+#: classes/Post_types.php:380
 #: assets/js/tutor-course-builder.js:21492
 #: assets/js/tutor-import-export.js:7208
 msgid "Assignments"
 msgstr ""
 
-#: classes/Post_types.php:380
+#: classes/Post_types.php:381
 msgid "Search Assignments"
 msgstr ""
 
-#: classes/Post_types.php:381
+#: classes/Post_types.php:382
 msgid "Parent Assignments:"
 msgstr ""
 
-#: classes/Post_types.php:382
+#: classes/Post_types.php:383
 msgid "No Assignments found."
 msgstr ""
 
-#: classes/Post_types.php:383
+#: classes/Post_types.php:384
 msgid "No Assignments found in Trash."
 msgstr ""
 
-#: classes/Post_types.php:435
+#: classes/Post_types.php:436
 msgid "Course restored to revision from "
 msgstr ""
 
-#: classes/Post_types.php:442
+#: classes/Post_types.php:443
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: classes/Post_types.php:443
+#: classes/Post_types.php:444
 msgid "Course scheduled for:"
 msgstr ""
 
-#: classes/Post_types.php:448
-#: classes/Post_types.php:451
+#: classes/Post_types.php:449
+#: classes/Post_types.php:452
 msgid "Course updated."
 msgstr ""
 
-#: classes/Post_types.php:449
+#: classes/Post_types.php:450
 msgid "Custom field updated."
 msgstr ""
 
-#: classes/Post_types.php:450
+#: classes/Post_types.php:451
 msgid "Custom field deleted."
 msgstr ""
 
-#: classes/Post_types.php:453
+#: classes/Post_types.php:454
 msgid "Course published."
 msgstr ""
 
-#: classes/Post_types.php:454
+#: classes/Post_types.php:455
 msgid "Course saved."
 msgstr ""
 
-#: classes/Post_types.php:455
+#: classes/Post_types.php:456
 msgid "Course submitted."
 msgstr ""
 
-#: classes/Post_types.php:457
+#: classes/Post_types.php:458
 msgid "Course draft updated."
 msgstr ""
 
-#: classes/Post_types.php:463
+#: classes/Post_types.php:464
 msgid "View course"
 msgstr ""
 
-#: classes/Post_types.php:469
+#: classes/Post_types.php:470
 msgid "Preview course"
 msgstr ""
 

@@ -12,6 +12,7 @@ namespace TUTOR;
 
 use Exception;
 use Tutor\Models\WithdrawModel;
+use Tutor\Traits\JsonResponse;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -23,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class Withdraw {
+	use JsonResponse;
 
 	/**
 	 * Withdraw method
@@ -252,7 +254,7 @@ class Withdraw {
 		}
 
 		try {
-			$withdraw_amount = (float) Input::post( 'tutor_withdraw_amount' );
+			$withdraw_amount = (float) Input::post( 'amount' );
 			$earning_summary = WithdrawModel::get_withdraw_summary( $user_id );
 			$min_withdraw    = (float) tutor_utils()->get_option( 'min_withdraw_amount' );
 

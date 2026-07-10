@@ -12,13 +12,13 @@ r.m=e;// webpack/runtime/define_property_getters
 r.e=e=>{return Promise.all(Object.keys(r.f).reduce((t,i)=>{r.f[i](e,t);return t},[]))}})();// webpack/runtime/get javascript chunk filename
 (()=>{// This function allow to reference chunks
 r.u=e=>{// return url for filenames not based on template
-if(e==="4")return"js/lazy-chunks/tutor-dnd-kit.js?ver=4.0.0";// return url for filenames based on template
+if(e==="4")return"js/lazy-chunks/tutor-dnd-kit.js?ver=4.0.1";// return url for filenames based on template
 return""+e+".javascript"}})();// webpack/runtime/get mini-css chunk filename
 (()=>{// This function allow to reference chunks
 r.miniCssF=e=>{// return url for filenames not based on template
 // return url for filenames based on template
 return""+e+".css"}})();// webpack/runtime/get_full_hash
-(()=>{r.h=()=>"4627d878f4dec41b"})();// webpack/runtime/global
+(()=>{r.h=()=>"0a55a67ec75adc3e"})();// webpack/runtime/global
 (()=>{r.g=(()=>{if(typeof globalThis==="object")return globalThis;try{return this||new Function("return this")()}catch(e){if(typeof window==="object")return window}})()})();// webpack/runtime/has_own_property
 (()=>{r.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t)})();// webpack/runtime/load_script
 (()=>{var e={};var t="tutor:";// loadScript function to load a script via script tag
@@ -195,8 +195,8 @@ var eW=()=>{window.TutorComponentRegistry.registerAll({components:[e$,eQ,eM,eF,e
 this.pagesHeight=Math.max(36,Math.min(400,i+t))};var o=()=>{this.resizing=false;window.removeEventListener("mousemove",n);window.removeEventListener("mouseup",o)};window.addEventListener("mousemove",n);window.addEventListener("mouseup",o)},togglePagesHeight(){if((this.pagesHeight||0)>36){this.pagesHeight=36}else if(this.$refs.pagesList){this.pagesHeight=this.$refs.pagesList.scrollHeight}},confirmReset(){n.showModal(this.resetModalId)},resetProgress(){var e;(e=this.resetProgressMutation)===null||e===void 0?void 0:e.mutate({course_id:this.courseId,context:"learning-area-sidebar"})}}};var eV=()=>{if(window.TutorComponentRegistry){window.TutorComponentRegistry.register({type:"component",meta:{name:"learningSidebar",component:eG}})}};// CONCATENATED MODULE: ./assets/src/js/frontend/learning-area/index.ts
 // Learning Area Entry Point
 // Initializes learning area functionality based on current page
-var ej=()=>{M();C();eV();O();_();var{pathname:e,search:t}=window.location;// Normalize path segments
-var r=e.split("/").filter(Boolean);var{tutorConfig:i}=window.TutorCore.config;var{lesson_slug:n="lessons",quiz_slug:o="quizzes"}=i||{};var a=null;if(r.includes(n)){a="lesson"}else if(r.includes(o)){a="quiz"}else{// fallback to query param (older behavior)
+var ej=e=>{try{return decodeURIComponent(e)}catch(t){return e}};var eZ=()=>{M();C();eV();O();_();var{pathname:e,search:t}=window.location;// Decode URL-encoded path segments before comparing with configured slugs.
+var r=e.split("/").filter(Boolean).map(ej);var{tutorConfig:i}=window.TutorCore.config;var{lesson_slug:n="lessons",quiz_slug:o="quizzes"}=i||{};var a=null;if(r.includes(n)){a="lesson"}else if(r.includes(o)){a="quiz"}else{// fallback to query param (older behavior)
 var s=new URLSearchParams(t);a=s.get("subpage")}switch(a){case"quiz":eW();break;case"lesson":G();break;case"qna":J();break;case"course-info":V();break;default:// eslint-disable-next-line no-console
 console.warn("Unknown learning area page:",a)}// Ensure all registered components are initialized with Alpine.
-if(window.TutorComponentRegistry){window.TutorComponentRegistry.initWithAlpine(window.Alpine)}};if(document.readyState==="loading"){document.addEventListener("alpine:init",ej)}else{ej()}})();
+if(window.TutorComponentRegistry){window.TutorComponentRegistry.initWithAlpine(window.Alpine)}};if(document.readyState==="loading"){document.addEventListener("alpine:init",eZ)}else{eZ()}})();

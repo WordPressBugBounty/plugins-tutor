@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tutor LMS 4.0.0\n"
+"Project-Id-Version: Tutor LMS 4.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tutor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-07T10:09:41+00:00\n"
+"POT-Creation-Date: 2026-07-10T11:00:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tutor\n"
@@ -591,9 +591,9 @@ msgstr ""
 #: classes/Course.php:2037
 #: classes/Course.php:2357
 #: classes/Instructor.php:343
-#: classes/Quiz.php:1118
-#: classes/Quiz.php:1122
-#: classes/Quiz.php:1175
+#: classes/Quiz.php:1119
+#: classes/Quiz.php:1123
+#: classes/Quiz.php:1176
 msgid "Access Denied"
 msgstr ""
 
@@ -725,7 +725,7 @@ msgstr ""
 #: classes/Instructors_List.php:112
 #: classes/Quiz_Attempts_List.php:226
 #: classes/Quiz_Attempts_List.php:283
-#: classes/Quiz_Attempts_List.php:651
+#: classes/Quiz_Attempts_List.php:657
 #: classes/Utils.php:2941
 #: classes/Withdraw_Requests_List.php:89
 #: includes/translate-text.php:39
@@ -762,7 +762,7 @@ msgid "Delete Permanently"
 msgstr ""
 
 #: classes/Backend_Page_Trait.php:145
-#: classes/Quiz.php:2029
+#: classes/Quiz.php:2034
 #: components/ConfirmationModal.php:374
 #: templates/dashboard/account/reviews.php:66
 #: templates/dashboard/account/reviews/review-card.php:258
@@ -1841,7 +1841,7 @@ msgid "Enable this feature to allow students to post comments on lessons."
 msgstr ""
 
 #: classes/Options_V2.php:952
-#: classes/Quiz.php:2274
+#: classes/Quiz.php:2279
 #: models/CourseModel.php:1613
 #: templates/learning-area/quiz/progress-bar.php:135
 #: templates/single/quiz/top.php:46
@@ -3158,43 +3158,43 @@ msgstr ""
 msgid "Please sign in to do this operation"
 msgstr ""
 
-#: classes/Quiz.php:1097
+#: classes/Quiz.php:1098
 msgid "Quiz has been timeout already"
 msgstr ""
 
-#: classes/Quiz.php:1129
+#: classes/Quiz.php:1130
 msgid "Review update failed"
 msgstr ""
 
-#: classes/Quiz.php:1214
+#: classes/Quiz.php:1215
 msgid "Review updated successfully"
 msgstr ""
 
-#: classes/Quiz.php:1481
+#: classes/Quiz.php:1482
 msgid "Quiz data fetched successfully"
 msgstr ""
 
-#: classes/Quiz.php:1513
+#: classes/Quiz.php:1514
 msgid "Invalid quiz"
 msgstr ""
 
-#: classes/Quiz.php:1573
+#: classes/Quiz.php:1574
 msgid "Quiz deleted successfully"
 msgstr ""
 
-#: classes/Quiz.php:1623
+#: classes/Quiz.php:1624
 msgid "Access Denied."
 msgstr ""
 
-#: classes/Quiz.php:1696
+#: classes/Quiz.php:1697
 msgid "Invalid attempt ID"
 msgstr ""
 
-#: classes/Quiz.php:1704
+#: classes/Quiz.php:1705
 msgid "Attempt deleted successfully!"
 msgstr ""
 
-#: classes/Quiz.php:1816
+#: classes/Quiz.php:1817
 #: templates/learning-area/subpages/qna.php:111
 #: templates/single/quiz/top.php:63
 #: views/quiz/contexts.php:97
@@ -3203,7 +3203,7 @@ msgstr ""
 msgid "Questions"
 msgstr ""
 
-#: classes/Quiz.php:1829
+#: classes/Quiz.php:1830
 #: templates/single/quiz/top.php:84
 #: views/quiz/contexts.php:68
 #: views/quiz/header-context/course-single-previous-attempts.php:42
@@ -3212,50 +3212,50 @@ msgstr ""
 msgid "Quiz Time"
 msgstr ""
 
-#: classes/Quiz.php:1841
+#: classes/Quiz.php:1842
 #: views/quiz/contexts.php:20
 #: views/quiz/contexts.php:70
 #: views/quiz/header-context/course-single-previous-attempts.php:48
 msgid "Total Marks"
 msgstr ""
 
-#: classes/Quiz.php:1852
+#: classes/Quiz.php:1853
 #: templates/single/quiz/top.php:113
 #: assets/js/tutor-course-builder.js:28790
 msgid "Passing Grade"
 msgstr ""
 
-#: classes/Quiz.php:1864
+#: classes/Quiz.php:1865
 msgid "Earned Grade"
 msgstr ""
 
-#: classes/Quiz.php:1877
+#: classes/Quiz.php:1878
 msgid "Total Attempts"
 msgstr ""
 
-#: classes/Quiz.php:1880
+#: classes/Quiz.php:1881
 #: assets/js/tutor-front.js:393
 msgid "No Limit"
 msgstr ""
 
-#: classes/Quiz.php:1923
+#: classes/Quiz.php:1924
 msgid "Attempts"
 msgstr ""
 
-#: classes/Quiz.php:1926
+#: classes/Quiz.php:1927
 #: templates/dashboard/my-quiz-attempts.php:97
 #: templates/dashboard/quiz-attempts.php:141
 msgid "Marks"
 msgstr ""
 
-#: classes/Quiz.php:1929
+#: classes/Quiz.php:1930
 #: templates/dashboard/my-quiz-attempts.php:98
 #: templates/dashboard/quiz-attempts.php:142
 #: assets/js/tutor.js:1651
 msgid "Time"
 msgstr ""
 
-#: classes/Quiz.php:1932
+#: classes/Quiz.php:1933
 #: templates/dashboard/my-quiz-attempts.php:99
 #: templates/dashboard/quiz-attempts.php:143
 #: views/quiz/contexts.php:24
@@ -3264,50 +3264,50 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
-#: classes/Quiz.php:2015
+#: classes/Quiz.php:2020
 #: templates/single/quiz/top.php:137
 msgid "Skip Quiz"
 msgstr ""
 
-#: classes/Quiz.php:2022
+#: classes/Quiz.php:2027
 #: templates/single/quiz/top.php:149
 msgid "Yes, Skip This"
 msgstr ""
 
-#: classes/Quiz.php:2038
+#: classes/Quiz.php:2043
 #: templates/single/quiz/top.php:146
 msgid "Do You Want to Skip This Quiz?"
 msgstr ""
 
-#: classes/Quiz.php:2039
+#: classes/Quiz.php:2044
 #: templates/single/quiz/top.php:147
 msgid "Are you sure you want to skip this quiz? Please confirm your choice."
 msgstr ""
 
-#: classes/Quiz.php:2050
-#: classes/Quiz.php:2109
+#: classes/Quiz.php:2055
+#: classes/Quiz.php:2114
 #: templates/dashboard/my-quiz-attempts.php:190
 #: templates/shared/components/quiz/attempt-details/summary.php:231
 #: templates/shared/components/quiz/attempt-details/summary.php:305
 msgid "Retry Quiz"
 msgstr ""
 
-#: classes/Quiz.php:2080
+#: classes/Quiz.php:2085
 #: templates/single/quiz/previous-attempts.php:63
 #: templates/single/quiz/top.php:132
 msgid "Start Quiz"
 msgstr ""
 
-#: classes/Quiz.php:2093
+#: classes/Quiz.php:2098
 #: templates/shared/components/quiz/attempt-details.php:156
 msgid "Continue Lesson"
 msgstr ""
 
-#: classes/Quiz.php:2105
+#: classes/Quiz.php:2110
 msgid "Retry Quiz?"
 msgstr ""
 
-#: classes/Quiz.php:2107
+#: classes/Quiz.php:2112
 #: templates/dashboard/my-quiz-attempts.php:188
 #: templates/shared/components/quiz/attempt-details/summary.php:303
 msgid "Retrying this quiz will reset your current attempt. Your answers and score from this attempt will be lost."
@@ -3444,21 +3444,21 @@ msgid "Failed"
 msgstr ""
 
 #: classes/Quiz_Attempts_List.php:295
-#: classes/Quiz_Attempts_List.php:649
+#: classes/Quiz_Attempts_List.php:655
 #: includes/translate-text.php:47
 #: templates/shared/components/quiz/attempt-details/summary.php:90
 msgid "Passed"
 msgstr ""
 
 #: classes/Quiz_Attempts_List.php:455
-#: classes/Quiz_Attempts_List.php:586
+#: classes/Quiz_Attempts_List.php:592
 msgid "Retry"
 msgstr ""
 
-#: classes/Quiz_Attempts_List.php:476
-#: classes/Quiz_Attempts_List.php:525
-#: classes/Quiz_Attempts_List.php:566
-#: classes/Quiz_Attempts_List.php:668
+#: classes/Quiz_Attempts_List.php:483
+#: classes/Quiz_Attempts_List.php:531
+#: classes/Quiz_Attempts_List.php:572
+#: classes/Quiz_Attempts_List.php:674
 #: templates/instructor/cover.php:43
 #: templates/instructor/default.php:37
 #: templates/instructor/minimal-horizontal.php:35
@@ -3472,7 +3472,7 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-#: classes/Quiz_Attempts_List.php:497
+#: classes/Quiz_Attempts_List.php:503
 #: templates/dashboard/discussions/comment-card.php:107
 #: templates/dashboard/discussions/comment-replies.php:64
 #: templates/dashboard/discussions/comment-single.php:89
@@ -3484,8 +3484,8 @@ msgstr ""
 msgid "More options"
 msgstr ""
 
-#: classes/Quiz_Attempts_List.php:677
-#: classes/Quiz_Attempts_List.php:703
+#: classes/Quiz_Attempts_List.php:683
+#: classes/Quiz_Attempts_List.php:709
 #: components/FileUploader.php:581
 #: templates/dashboard/account/reviews/review-card.php:156
 #: templates/dashboard/announcements.php:200
@@ -4310,26 +4310,26 @@ msgstr ""
 msgid "Unsupported media type"
 msgstr ""
 
-#: classes/Utils.php:9852
+#: classes/Utils.php:9916
 msgid "Gutenberg"
 msgstr ""
 
-#: classes/Utils.php:9867
+#: classes/Utils.php:9931
 msgid "Droip"
 msgstr ""
 
-#: classes/Utils.php:9885
+#: classes/Utils.php:9949
 msgid "Elementor"
 msgstr ""
 
-#: classes/Utils.php:9913
+#: classes/Utils.php:9977
 #: assets/js/tutor-course-builder.js:13778
 #: assets/js/tutor-course-builder.js:33422
 msgid "Classic Editor"
 msgstr ""
 
 #. translators: %s: timestamp
-#: classes/Utils.php:10010
+#: classes/Utils.php:10074
 #, php-format
 msgid "%s left"
 msgstr ""
@@ -6990,7 +6990,7 @@ msgid "Select mode"
 msgstr ""
 
 #: templates/dashboard/account/settings/preferences.php:188
-#: views/pages/welcome.php:1138
+#: views/pages/welcome.php:1146
 msgid "Accessibility"
 msgstr ""
 
@@ -10529,183 +10529,191 @@ msgstr ""
 msgid "Students sensitive to motion can reduce or disable animations and hover effects across the entire platform."
 msgstr ""
 
-#: views/pages/welcome.php:986
+#: views/pages/welcome.php:994
 msgid "Don't show again"
 msgstr ""
 
-#: views/pages/welcome.php:989
+#: views/pages/welcome.php:997
 msgid "What's new in v4"
 msgstr ""
 
-#: views/pages/welcome.php:997
+#: views/pages/welcome.php:1005
 msgid "Dashboard and Navigation"
 msgstr ""
 
-#: views/pages/welcome.php:998
+#: views/pages/welcome.php:1006
 msgid "Designed for flow."
 msgstr ""
 
-#: views/pages/welcome.php:1001
+#: views/pages/welcome.php:1009
 msgid "Every screen, every interaction, every detail has been reconsidered, so students can focus on learning instead of figuring out where to go next."
 msgstr ""
 
-#: views/pages/welcome.php:1016
+#: views/pages/welcome.php:1024
 msgid "Learner first design"
 msgstr ""
 
-#: views/pages/welcome.php:1017
+#: views/pages/welcome.php:1025
 msgid "Everything they need. Exactly where they expect it."
 msgstr ""
 
-#: views/pages/welcome.php:1020
+#: views/pages/welcome.php:1028
 msgid "Notes, discussions, resources, lesson comments – all accessible without leaving the lesson. No more tab-switching. No more hunting."
 msgstr ""
 
-#: views/pages/welcome.php:1041
+#: views/pages/welcome.php:1049
 msgid "Interactive Assessments"
 msgstr ""
 
-#: views/pages/welcome.php:1042
+#: views/pages/welcome.php:1050
 msgid "5 new ways to make assessment actually fun."
 msgstr ""
 
-#: views/pages/welcome.php:1045
+#: views/pages/welcome.php:1053
 msgid "Most LMSs treat assessment as the boring part. Tutor LMS 4.0 turns it into the part students look forward to — with five new interactive quiz types designed to keep them engaged."
 msgstr ""
 
-#: views/pages/welcome.php:1071
+#: views/pages/welcome.php:1079
 msgid "Native App Like Experience"
 msgstr ""
 
 #. translators: placeholder is a line break.
-#: views/pages/welcome.php:1078
+#: views/pages/welcome.php:1086
 #, php-format
 msgid "Your academy, in  %s your pocket."
 msgstr ""
 
-#: views/pages/welcome.php:1089
-#: views/pages/welcome.php:1093
+#: views/pages/welcome.php:1097
+#: views/pages/welcome.php:1101
 msgid "Native app like experience"
 msgstr ""
 
-#: views/pages/welcome.php:1090
+#: views/pages/welcome.php:1098
 msgid "The mobile interface mirrors a polished native app — smooth transitions, touch-friendly controls, and a layout built for small screens without any compromise."
 msgstr ""
 
-#: views/pages/welcome.php:1094
+#: views/pages/welcome.php:1102
 msgid "Native app like experience (Kids)"
 msgstr ""
 
-#: views/pages/welcome.php:1100
-#: views/pages/welcome.php:1104
+#: views/pages/welcome.php:1108
+#: views/pages/welcome.php:1112
 msgid "Smoother navigation"
 msgstr ""
 
-#: views/pages/welcome.php:1101
+#: views/pages/welcome.php:1109
 msgid "Students move between courses, lessons, and their profile without friction — every tap takes them exactly where they need to go."
 msgstr ""
 
-#: views/pages/welcome.php:1105
+#: views/pages/welcome.php:1113
 msgid "Smoother navigation (Kids)"
 msgstr ""
 
-#: views/pages/welcome.php:1110
+#: views/pages/welcome.php:1118
 msgid "Switch to modern mode"
 msgstr ""
 
-#: views/pages/welcome.php:1114
+#: views/pages/welcome.php:1122
 msgid "Switch to kids mode"
 msgstr ""
 
-#: views/pages/welcome.php:1120
-#: views/pages/welcome.php:1124
+#: views/pages/welcome.php:1128
+#: views/pages/welcome.php:1132
 msgid "Modern Modes"
 msgstr ""
 
-#: views/pages/welcome.php:1121
-#: views/pages/welcome.php:1125
+#: views/pages/welcome.php:1129
+#: views/pages/welcome.php:1133
 msgid "A modern, distraction-free learning experience."
 msgstr ""
 
-#: views/pages/welcome.php:1122
+#: views/pages/welcome.php:1130
 msgid "Kids Mode"
 msgstr ""
 
-#: views/pages/welcome.php:1123
+#: views/pages/welcome.php:1131
 msgid "A fun, engaging and distraction-free learning experience."
 msgstr ""
 
 #. translators: placeholder is a line break.
-#: views/pages/welcome.php:1143
+#: views/pages/welcome.php:1151
 #, php-format
 msgid "No learner left behind. %s By design."
 msgstr ""
 
-#: views/pages/welcome.php:1155
+#: views/pages/welcome.php:1163
 msgid "Mode with preference"
 msgstr ""
 
-#: views/pages/welcome.php:1156
+#: views/pages/welcome.php:1164
 msgid "Students can switch between Modern, Dark, and Kids modes to match their personal comfort and learning environment."
 msgstr ""
 
-#: views/pages/welcome.php:1161
+#: views/pages/welcome.php:1169
 msgid "Dark Mode"
 msgstr ""
 
-#: views/pages/welcome.php:1163
+#: views/pages/welcome.php:1171
 msgid "Light Mode"
 msgstr ""
 
-#: views/pages/welcome.php:1167
+#: views/pages/welcome.php:1175
 msgid "Compare light and dark mode"
 msgstr ""
 
-#: views/pages/welcome.php:1184
+#: views/pages/welcome.php:1192
 msgid "Instructor Dashboard"
 msgstr ""
 
 #. translators: placeholder is a line break.
-#: views/pages/welcome.php:1189
+#: views/pages/welcome.php:1197
 #, php-format
 msgid "Run your entire academy  %s from one screen."
 msgstr ""
 
-#: views/pages/welcome.php:1196
+#: views/pages/welcome.php:1204
 msgid "Quiz attempts, assignments, revenue, student progress — everything tracked, everything visible, without jumping between dashboards. Spend less time administrating and more time doing what you're actually good at."
 msgstr ""
 
-#: views/pages/welcome.php:1214
+#: views/pages/welcome.php:1222
 msgid "100,000+"
 msgstr ""
 
 #. translators: %s: placeholder is a link.
-#: views/pages/welcome.php:1219
+#: views/pages/welcome.php:1227
 #, php-format
 msgid "eLearning websites are running on %s"
 msgstr ""
 
-#: views/pages/welcome.php:1230
+#: views/pages/welcome.php:1238
+msgid "4.4 ★"
+msgstr ""
+
+#: views/pages/welcome.php:1239
+msgid "WordPress"
+msgstr ""
+
+#: views/pages/welcome.php:1243
 msgid "4.6 ★"
 msgstr ""
 
-#: views/pages/welcome.php:1231
+#: views/pages/welcome.php:1244
 msgid "G2 Ratings"
 msgstr ""
 
-#: views/pages/welcome.php:1235
+#: views/pages/welcome.php:1248
 msgid "#1"
 msgstr ""
 
-#: views/pages/welcome.php:1236
+#: views/pages/welcome.php:1249
 msgid "Product Hunt"
 msgstr ""
 
-#: views/pages/welcome.php:1240
+#: views/pages/welcome.php:1253
 msgid "4.7 ★"
 msgstr ""
 
-#: views/pages/welcome.php:1241
+#: views/pages/welcome.php:1254
 msgid "Trustpilot"
 msgstr ""
 

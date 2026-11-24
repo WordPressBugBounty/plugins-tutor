@@ -12,13 +12,13 @@ r.m=t;// webpack/runtime/define_property_getters
 r.e=t=>{return Promise.all(Object.keys(r.f).reduce((e,i)=>{r.f[i](t,e);return e},[]))}})();// webpack/runtime/get javascript chunk filename
 (()=>{// This function allow to reference chunks
 r.u=t=>{// return url for filenames not based on template
-if(t==="4")return"js/lazy-chunks/tutor-dnd-kit.js?ver=4.2.1";// return url for filenames based on template
+if(t==="4")return"js/lazy-chunks/tutor-dnd-kit.js?ver=4.2.2";// return url for filenames based on template
 return""+t+".javascript"}})();// webpack/runtime/get mini-css chunk filename
 (()=>{// This function allow to reference chunks
 r.miniCssF=t=>{// return url for filenames not based on template
 // return url for filenames based on template
 return""+t+".css"}})();// webpack/runtime/get_full_hash
-(()=>{r.h=()=>"63198f1c083c50ee"})();// webpack/runtime/global
+(()=>{r.h=()=>"62e46f64d2c25647"})();// webpack/runtime/global
 (()=>{r.g=(()=>{if(typeof globalThis==="object")return globalThis;try{return this||new Function("return this")()}catch(t){if(typeof window==="object")return window}})()})();// webpack/runtime/has_own_property
 (()=>{r.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e)})();// webpack/runtime/load_script
 (()=>{var t={};var e="tutor:";// loadScript function to load a script via script tag
@@ -119,7 +119,7 @@ class tn{/**
    * UI: Enable Complete Lesson Button
    */enableCompleteLessonBtn(){var t=document.querySelector('button[name="complete_lesson_btn"]');if(!t||!this.player)return;var e=this.getPercentage(Number(this.player.currentTime),Number(this.player.duration));var r=this.playerData.required_percentage||0;if(e>=r){var i,n;t.disabled=false;if((i=t.nextElementSibling)===null||i===void 0?void 0:i.classList.contains("tutor-tooltip")){t.nextElementSibling.remove()}if((n=t.parentElement)===null||n===void 0?void 0:n.classList.contains("tutor-tooltip-wrap")){t.parentElement.replaceWith(t)}}}/**
    * UI: Disable Complete Lesson Button
-   */disableCompleteLessonBtn(){var{best_watch_time:t=0,video_duration:e=0,required_percentage:r=0}=this.playerData;var i=this.getPercentage(Number(t),Number(e));if(i<r){var n=document.querySelector('button[name="complete_lesson_btn"]');if(n&&!n.disabled){var o,a;n.disabled=true;if(!((o=n.parentElement)===null||o===void 0?void 0:o.classList.contains("tutor-tooltip-wrap"))){var s;var u=document.createElement("div");u.className="tutor-tooltip-wrap";u.setAttribute("x-data",'tutorTooltip({ placement: "top" })');(s=n.parentNode)===null||s===void 0?void 0:s.insertBefore(u,n);u.appendChild(n);n.setAttribute("x-ref","trigger")}if(!((a=n.nextElementSibling)===null||a===void 0?void 0:a.classList.contains("tutor-tooltip"))){n.insertAdjacentHTML("afterend",'<div x-ref="content" class="tutor-tooltip" x-show="open" x-cloak x-transition>'.concat((0,d.sprintf)(/* translators: %s is the required watch percentage (e.g., 80) */(0,d.__)("Watch at least %s%% to complete the lesson.","tutor"),r),"</div>"));if(window.Alpine){window.Alpine.initTree(n.parentElement)}}}}}/**
+   */disableCompleteLessonBtn(){var{best_watch_time:t=0,video_duration:e=0,required_percentage:r=0}=this.playerData;var i=this.getPercentage(Number(t),Number(e));if(i<r){var n=document.querySelector('button[name="complete_lesson_btn"]');if(n&&!n.disabled){var o;n.disabled=true;if(!((o=n.parentElement)===null||o===void 0?void 0:o.classList.contains("tutor-tooltip-wrap"))){var a;var s=(0,d.sprintf)(/* translators: %s is the required watch percentage (e.g., 80) */(0,d.__)("Watch at least %s%% to complete the lesson.","tutor"),Number(r));var u=document.createElement("div");u.className="tutor-tooltip-wrap";u.setAttribute("x-data",'{ ...tutorTooltip({ placement: "top", arrow: "center" }), isLoading: false }');u.setAttribute("x-ref","trigger");(a=n.parentNode)===null||a===void 0?void 0:a.insertBefore(u,n);u.appendChild(n);var l=document.createElement("template");l.setAttribute("x-teleport","body");var _=document.createElement("div");_.setAttribute("x-ref","content");_.className="tutor-tooltip";_.setAttribute("x-show","open");_.setAttribute("x-cloak","");_.setAttribute("x-transition","");_.textContent=s;l.content.appendChild(_);u.appendChild(l);if(window.Alpine){window.Alpine.initTree(u)}}}}}/**
    * Sync time with server
    */syncTime(){var t=arguments.length>0&&arguments[0]!==void 0?arguments[0]:{};if(!this.player||!this.playerData.post_id)return;if(this.isRequiredPercentage()){this.enableCompleteLessonBtn()}var e=s({currentTime:this.player.currentTime,duration:this.player.duration,post_id:this.playerData.post_id},t);var{wpPost:r}=window.TutorCore.api;r("sync_video_playback",e);var i=this.player.currentTime;var n=this.playerData.best_watch_time||0;var o=n>i?n:i;if(o>this.maxSeekTime){this.maxSeekTime=o}}/**
    * Autoload next course content
@@ -127,7 +127,7 @@ class tn{/**
    * Get target time from seek event input
    */getTargetTime(t,e){var r=e.target;if(r instanceof HTMLInputElement){var i=Number(r.value);var n=Number(r.max)||1;return i/n*t.duration}return Number(e)}/**
    * Initialize Plyr
-   */initPlyr(){if(typeof window.Plyr==="undefined")return;var t=this.isRequiredPercentage();var e={keyboard:{focused:!t,global:false},listeners:s({},t&&{seek:t=>{if(!this.player)return true;var e=this.getTargetTime(this.player,t);var r=this.player.currentTime;var i=r>this.maxSeekTime?r:this.maxSeekTime;if(e>i){t.preventDefault();window.TutorCore.toast.warning((0,d.__)("Forward seeking is disabled","tutor"));return false}return true}})};this.player=new window.Plyr(this.element,e);this.setupEvents();if(t){this.disableCompleteLessonBtn()}}/**
+   */initPlyr(){if(typeof window.Plyr==="undefined")return;this.element.removeAttribute("data-plyr-config");var t=this.isRequiredPercentage();var e={keyboard:{focused:!t,global:false},listeners:s({},t&&{seek:t=>{if(!this.player)return true;var e=this.getTargetTime(this.player,t);var r=this.player.currentTime;var i=r>this.maxSeekTime?r:this.maxSeekTime;if(e>i){t.preventDefault();window.TutorCore.toast.warning((0,d.__)("Forward seeking is disabled","tutor"));return false}return true}})};this.player=new window.Plyr(this.element,e);this.setupEvents();if(t){this.disableCompleteLessonBtn()}}/**
    * Setup Plyr events
    */setupEvents(){if(!this.player)return;this.player.on("ready",t=>{var e;(e=document.querySelector(".tutor-video-player .loading-spinner"))===null||e===void 0?void 0:e.remove();this.syncTime();var r=t.detail.plyr;// Tab click reveals youtube controls fixed
 if(tr(r)){var i;var n=(i=r.elements.wrapper)===null||i===void 0?void 0:i.querySelector("iframe");n===null||n===void 0?void 0:n.setAttribute("tabindex","-1");n===null||n===void 0?void 0:n.setAttribute("aria-hidden","true")}/**

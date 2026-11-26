@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tutor LMS 4.2.2\n"
+"Project-Id-Version: Tutor LMS 4.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tutor\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-24T09:38:00+00:00\n"
+"POT-Creation-Date: 2026-11-26T06:10:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tutor\n"
@@ -421,7 +421,7 @@ msgstr ""
 #: classes/Announcements.php:191
 #: classes/Options_V2.php:1647
 #: classes/Utils.php:2897
-#: classes/Utils.php:8714
+#: classes/Utils.php:8713
 #: templates/dashboard/announcements.php:90
 #: templates/learning-area/subpages/announcements.php:45
 #: views/fragments/announcement-list.php:257
@@ -443,7 +443,7 @@ msgstr ""
 #: classes/Admin.php:316
 #: classes/Options_V2.php:1536
 #: classes/Q_And_A.php:118
-#: classes/Utils.php:8709
+#: classes/Utils.php:8708
 #: templates/dashboard.php:93
 #: templates/dashboard/discussions.php:40
 #: templates/learning-area/subpages/qna.php:75
@@ -709,7 +709,7 @@ msgstr ""
 #: classes/Quiz_Attempts_List.php:225
 #: classes/Quiz_Attempts_List.php:282
 #: classes/Quiz_Attempts_List.php:740
-#: classes/Utils.php:3069
+#: classes/Utils.php:3068
 #: classes/Withdraw_Requests_List.php:91
 #: includes/translate-text.php:39
 #: models/OrderModel.php:303
@@ -1150,7 +1150,7 @@ msgstr ""
 
 #: classes/Course.php:3547
 #: classes/InstructorMetricsAdapter.php:292
-#: classes/Utils.php:7068
+#: classes/Utils.php:7067
 #: includes/translate-text.php:75
 #: models/OrderModel.php:300
 #: templates/dashboard/student/stats.php:75
@@ -1362,7 +1362,7 @@ msgstr ""
 
 #: classes/Dashboard.php:134
 #: classes/Reviews.php:185
-#: classes/Utils.php:8705
+#: classes/Utils.php:8704
 #: templates/learning-area/subpages/reviews.php:62
 msgid "Reviews"
 msgstr ""
@@ -1586,7 +1586,7 @@ msgid "Enrolled"
 msgstr ""
 
 #: classes/InstructorMetricsAdapter.php:296
-#: classes/Utils.php:7072
+#: classes/Utils.php:7071
 msgid "In Progress"
 msgstr ""
 
@@ -1760,7 +1760,7 @@ msgid "General Settings"
 msgstr ""
 
 #: classes/Options_V2.php:747
-#: classes/Utils.php:7113
+#: classes/Utils.php:7112
 msgid "Dashboard Page"
 msgstr ""
 
@@ -2717,7 +2717,7 @@ msgid "This page will be used to list all the published courses."
 msgstr ""
 
 #: classes/Options_V2.php:1704
-#: classes/Utils.php:7114
+#: classes/Utils.php:7113
 msgid "Instructor Registration Page"
 msgstr ""
 
@@ -2726,7 +2726,7 @@ msgid "Choose the page for instructor registration."
 msgstr ""
 
 #: classes/Options_V2.php:1713
-#: classes/Utils.php:7115
+#: classes/Utils.php:7114
 msgid "Student Registration Page"
 msgstr ""
 
@@ -3959,7 +3959,7 @@ msgid "Profile Page"
 msgstr ""
 
 #: classes/Template.php:659
-#: classes/Utils.php:8701
+#: classes/Utils.php:8700
 #: assets/js/tutor-course-builder.js:4292
 msgid "Course Info"
 msgstr ""
@@ -4341,7 +4341,7 @@ msgstr ""
 msgid "Create Bundle"
 msgstr ""
 
-#: classes/Utils.php:3070
+#: classes/Utils.php:3069
 #: classes/Withdraw_Requests_List.php:85
 #: includes/translate-text.php:67
 #: models/UserModel.php:95
@@ -4350,109 +4350,109 @@ msgstr ""
 msgid "Approved"
 msgstr ""
 
-#: classes/Utils.php:3071
+#: classes/Utils.php:3070
 #: includes/translate-text.php:103
 #: views/pages/instructors.php:59
 msgid "Blocked"
 msgstr ""
 
-#: classes/Utils.php:3788
+#: classes/Utils.php:3787
 #: templates/dashboard/account/profile.php:40
 #: templates/shortcode/instructor-filter.php:85
 msgid "Ratings"
 msgstr ""
 
-#: classes/Utils.php:3788
+#: classes/Utils.php:3787
 msgid "Rating"
 msgstr ""
 
-#: classes/Utils.php:5496
+#: classes/Utils.php:5495
 msgid "All Levels"
 msgstr ""
 
-#: classes/Utils.php:5497
+#: classes/Utils.php:5496
 msgid "Beginner"
 msgstr ""
 
-#: classes/Utils.php:5498
+#: classes/Utils.php:5497
 msgid "Intermediate"
 msgstr ""
 
-#: classes/Utils.php:5499
+#: classes/Utils.php:5498
 msgid "Expert"
 msgstr ""
 
-#: classes/Utils.php:5878
+#: classes/Utils.php:5877
 msgid "Share on Facebook"
 msgstr ""
 
-#: classes/Utils.php:5885
+#: classes/Utils.php:5884
 msgid "Share on X"
 msgstr ""
 
-#: classes/Utils.php:5892
+#: classes/Utils.php:5891
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: classes/Utils.php:5911
+#: classes/Utils.php:5910
 msgid "Facebook"
 msgstr ""
 
-#: classes/Utils.php:5918
+#: classes/Utils.php:5917
 msgid "X"
 msgstr ""
 
-#: classes/Utils.php:5925
+#: classes/Utils.php:5924
 msgid "Linkedin"
 msgstr ""
 
-#: classes/Utils.php:5932
+#: classes/Utils.php:5931
 msgid "Github"
 msgstr ""
 
-#: classes/Utils.php:5939
+#: classes/Utils.php:5938
 msgid "Website"
 msgstr ""
 
-#: classes/Utils.php:7074
+#: classes/Utils.php:7073
 msgid "Not Taken"
 msgstr ""
 
-#: classes/Utils.php:7116
+#: classes/Utils.php:7115
 msgid "Cart"
 msgstr ""
 
-#: classes/Utils.php:7117
+#: classes/Utils.php:7116
 #: ecommerce/Settings.php:217
 #: GDPR/Controllers/LegalConsent.php:165
 msgid "Checkout"
 msgstr ""
 
-#: classes/Utils.php:7310
+#: classes/Utils.php:7309
 msgid "Set Your Profile Photo"
 msgstr ""
 
-#: classes/Utils.php:7311
+#: classes/Utils.php:7310
 msgid "Add Your Social Links"
 msgstr ""
 
-#: classes/Utils.php:7312
+#: classes/Utils.php:7311
 msgid "Set Your Bio"
 msgstr ""
 
-#: classes/Utils.php:7317
+#: classes/Utils.php:7316
 msgid "Set Withdraw Method"
 msgstr ""
 
-#: classes/Utils.php:8435
+#: classes/Utils.php:8434
 msgid "Try adjusting your filters."
 msgstr ""
 
-#: classes/Utils.php:8449
+#: classes/Utils.php:8448
 msgid "Try using different keywords."
 msgstr ""
 
-#: classes/Utils.php:8585
+#: classes/Utils.php:8584
 #: components/DateFilter.php:388
 #: components/DateFilter.php:458
 #: components/DateFilter.php:462
@@ -4460,63 +4460,63 @@ msgstr ""
 msgid "All Time"
 msgstr ""
 
-#: classes/Utils.php:8586
+#: classes/Utils.php:8585
 #: components/DateFilter.php:466
 #: templates/dashboard/instructor/home/upcoming-task-item.php:32
 msgid "Today"
 msgstr ""
 
-#: classes/Utils.php:8587
+#: classes/Utils.php:8586
 #: components/DateFilter.php:470
 msgid "Last 30 Days"
 msgstr ""
 
-#: classes/Utils.php:8588
+#: classes/Utils.php:8587
 msgid "Last 90 Days"
 msgstr ""
 
-#: classes/Utils.php:8589
+#: classes/Utils.php:8588
 msgid "Last 365 Days"
 msgstr ""
 
-#: classes/Utils.php:8590
+#: classes/Utils.php:8589
 msgid "Custom"
 msgstr ""
 
-#: classes/Utils.php:8934
+#: classes/Utils.php:8933
 #: templates/single/lesson/sidebar_question_and_answer.php:43
 msgid "No Data Available in this Section"
 msgstr ""
 
-#: classes/Utils.php:8935
+#: classes/Utils.php:8934
 msgid "No Data Found from your Search/Filter"
 msgstr ""
 
-#: classes/Utils.php:9033
+#: classes/Utils.php:9032
 msgid "HTML 5 (mp4)"
 msgstr ""
 
-#: classes/Utils.php:9037
+#: classes/Utils.php:9036
 msgid "External URL"
 msgstr ""
 
-#: classes/Utils.php:9041
+#: classes/Utils.php:9040
 msgid "YouTube"
 msgstr ""
 
-#: classes/Utils.php:9045
+#: classes/Utils.php:9044
 msgid "Vimeo"
 msgstr ""
 
-#: classes/Utils.php:9049
+#: classes/Utils.php:9048
 msgid "Embedded"
 msgstr ""
 
-#: classes/Utils.php:9053
+#: classes/Utils.php:9052
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Utils.php:10040
+#: classes/Utils.php:10039
 #: models/QuizModel.php:1980
 #: assets/js/tutor-addon-list.js:2027
 #: assets/js/tutor-addon-list.js:2033
@@ -4552,88 +4552,88 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
-#: classes/Utils.php:10045
+#: classes/Utils.php:10044
 msgid "You are not authorzied to perform this action"
 msgstr ""
 
-#: classes/Utils.php:10046
+#: classes/Utils.php:10045
 msgid "Nonce not matched. Action failed!"
 msgstr ""
 
-#: classes/Utils.php:10047
+#: classes/Utils.php:10046
 msgid "Invalid request"
 msgstr ""
 
-#: classes/Utils.php:10048
+#: classes/Utils.php:10047
 msgid "Authentication failed"
 msgstr ""
 
-#: classes/Utils.php:10049
+#: classes/Utils.php:10048
 msgid "Authorization required"
 msgstr ""
 
-#: classes/Utils.php:10050
+#: classes/Utils.php:10049
 msgid "Requested resource not found"
 msgstr ""
 
-#: classes/Utils.php:10051
+#: classes/Utils.php:10050
 msgid "Internal server error"
 msgstr ""
 
-#: classes/Utils.php:10052
+#: classes/Utils.php:10051
 msgid "Request timed out"
 msgstr ""
 
-#: classes/Utils.php:10053
+#: classes/Utils.php:10052
 msgid "Access to this resource is forbidden"
 msgstr ""
 
-#: classes/Utils.php:10054
+#: classes/Utils.php:10053
 msgid "HTTP method not allowed"
 msgstr ""
 
-#: classes/Utils.php:10055
+#: classes/Utils.php:10054
 msgid "Too many requests"
 msgstr ""
 
-#: classes/Utils.php:10056
+#: classes/Utils.php:10055
 #: GDPR/Controllers/LegalConsent.php:442
 #: assets/js/lazy-chunks/tutor-form.js:123
 msgid "Validation error"
 msgstr ""
 
-#: classes/Utils.php:10057
+#: classes/Utils.php:10056
 msgid "Database operation failed"
 msgstr ""
 
-#: classes/Utils.php:10058
+#: classes/Utils.php:10057
 msgid "Requested file not found"
 msgstr ""
 
-#: classes/Utils.php:10059
+#: classes/Utils.php:10058
 msgid "Unsupported media type"
 msgstr ""
 
-#: classes/Utils.php:10169
+#: classes/Utils.php:10168
 msgid "Gutenberg"
 msgstr ""
 
-#: classes/Utils.php:10184
+#: classes/Utils.php:10183
 msgid "Droip"
 msgstr ""
 
-#: classes/Utils.php:10202
+#: classes/Utils.php:10201
 msgid "Elementor"
 msgstr ""
 
-#: classes/Utils.php:10230
+#: classes/Utils.php:10229
 #: assets/js/tutor-course-builder.js:13798
 #: assets/js/tutor-course-builder.js:33268
 msgid "Classic Editor"
 msgstr ""
 
 #. translators: %s: timestamp
-#: classes/Utils.php:10388
+#: classes/Utils.php:10387
 #, php-format
 msgid "%s left"
 msgstr ""
